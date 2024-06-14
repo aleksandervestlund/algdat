@@ -1,5 +1,3 @@
-from typing import Any
-
 from algorithms.datastructures.node import Node
 
 
@@ -7,7 +5,7 @@ class LinkedList:
     def __init__(self) -> None:
         self.head: Node | None = None
 
-    def search(self, key: Any) -> Node | None:
+    def search(self, key: int) -> Node | None:
         x = self.head
         while x is not None and x.key != key:
             x = x.next
@@ -20,7 +18,8 @@ class LinkedList:
             self.head.prev = x
         self.head = x
 
-    def insert(self, x: Node, y: Node) -> None:
+    @staticmethod
+    def insert(x: Node, y: Node) -> None:
         x.next = y.next
         x.prev = y
         if y.next is not None:

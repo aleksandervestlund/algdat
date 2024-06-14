@@ -1,29 +1,9 @@
-from algorithms.datastructures.chained_hash_table import ChainedHashTable
-from algorithms.datastructures.linked_list import LinkedList
-from algorithms.datastructures.node import Node
+from algorithms.sorting.radix_sort import radix_sort, xidar_non_sort
 
 
 def main() -> None:
-    x = Node(1)
-    y = Node(2)
-    z = Node(3)
-    a = Node(12)
-    b = Node(13)
-    c = Node(14)
-    arr = LinkedList()
-    arr.prepend(x)
-    arr.prepend(y)
-    arr.insert(z, x)
-    print(arr)
-
-    table = ChainedHashTable(10)
-    table.insert(x)
-    table.insert(y)
-    table.insert(z)
-    table.insert(a)
-    table.insert(b)
-    table.insert(c)
-    print(table)
+    print(radix_sort([529, 531, 1223, 1736, 1936, 2007, 2016], 4))
+    print(xidar_non_sort([529, 531, 1223, 1736, 1936, 2007, 2016], 4))
 
 
 if __name__ == "__main__":
