@@ -8,6 +8,6 @@ def bucket_sort(a: list[int], n: int) -> list[int]:
         b[int(n * x)].append(x)
 
     for i in range(n):
-        b[i] = sorted(b[i])
+        b[i].sort()
 
     return list(itertools.chain.from_iterable(b))
