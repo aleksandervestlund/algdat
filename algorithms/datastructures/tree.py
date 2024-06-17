@@ -18,20 +18,20 @@ class Tree:
     def __init__(self, root: TreeNode) -> None:
         self.root = root
 
-    def inorder_walk(self, x: TreeNode | None) -> None:
+    def tree_inorder_walk(self, x: TreeNode | None) -> None:
         if x is not None:
-            self.inorder_walk(x.left)
+            self.tree_inorder_walk(x.left)
             print(x.key)
-            self.inorder_walk(x.right)
+            self.tree_inorder_walk(x.right)
 
-    def search(self, x: TreeNode | None, key: int) -> TreeNode | None:
+    def tree_search(self, x: TreeNode | None, key: int) -> TreeNode | None:
         if x is None or x.key == key:
             return x
         if key < x.key:
-            return self.search(x.left, key)
-        return self.search(x.right, key)
+            return self.tree_search(x.left, key)
+        return self.tree_search(x.right, key)
 
-    def insert(self, z: TreeNode) -> None:
+    def tree_insert(self, z: TreeNode) -> None:
         x = self.root
         y = None
 
@@ -49,16 +49,16 @@ class Tree:
             y.right = z
 
     @staticmethod
-    def minimum(x: TreeNode) -> TreeNode:
+    def tree_minimum(x: TreeNode) -> TreeNode:
         while x.left is not None:
             x = x.left
 
         return x
 
     @staticmethod
-    def successor(x: TreeNode) -> TreeNode | None:
+    def tree_successor(x: TreeNode) -> TreeNode | None:
         if x.right is not None:
-            return Tree.minimum(x.right)
+            return Tree.tree_minimum(x.right)
 
         y = x.parent
 
@@ -79,13 +79,13 @@ class Tree:
         if v is not None:
             v.parent = u.parent
 
-    def delete(self, z: TreeNode) -> None:
+    def tree_delete(self, z: TreeNode) -> None:
         if z.left is None:
             self.transplant(z, z.right)
         elif z.right is None:
             self.transplant(z, z.left)
         else:
-            if (y := Tree.minimum(z.right)) != z.parent:
+            if (y := Tree.tree_minimum(z.right)) != z.parent:
                 self.transplant(y, y.right)
                 y.right = z.right
                 y.right.parent = y

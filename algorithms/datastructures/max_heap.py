@@ -1,7 +1,7 @@
 from algorithms.underflow import UnderflowError
 
 
-class Heap:
+class MaxHeap:
     def __init__(self) -> None:
         self.heap: list[int] = []
         self.size = 0
@@ -19,8 +19,8 @@ class Heap:
         return (i - 1) // 2
 
     def max_heapify(self, i: int) -> None:
-        l = Heap.left(i)
-        r = Heap.right(i)
+        l = MaxHeap.left(i)
+        r = MaxHeap.right(i)
         m = l if l < self.size and self.heap[l] > self.heap[i] else i
 
         if r < self.size and self.heap[r] > self.heap[m]:
@@ -41,7 +41,7 @@ class Heap:
         i = self.heap.index(x)
         self.heap[i] = k
 
-        while i and self.heap[(j := Heap.parent(i))] < self.heap[i]:
+        while i and self.heap[(j := MaxHeap.parent(i))] < self.heap[i]:
             self.heap[i], self.heap[j] = (self.heap[j], self.heap[i])
             i = j
 
@@ -52,7 +52,7 @@ class Heap:
         self.size += 1
         k = key
         key = float("-inf")  # type: ignore
-        self.heap[self.size] = key
+        self.heap.append(key)
         self.max_heap_increase_key(key, k)
 
     def max_heap_maximum(self) -> int:

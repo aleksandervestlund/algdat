@@ -7,19 +7,19 @@ class ChainedHashTable:
         self.size = size
 
     def _get_linked_list(self, key: int) -> LinkedList:
-        return self.table[self.hash(key)]
+        return self.table[self._hash(key)]
 
-    def hash(self, key: int) -> int:
+    def _hash(self, key: int) -> int:
         return key % self.size
 
-    def search(self, key: int) -> LinkedListNode | None:
-        return self._get_linked_list(key).search(key)
+    def chained_hash_search(self, key: int) -> LinkedListNode | None:
+        return self._get_linked_list(key).list_search(key)
 
-    def insert(self, x: LinkedListNode) -> None:
-        self._get_linked_list(x.key).prepend(x)
+    def chained_hash_insert(self, x: LinkedListNode) -> None:
+        self._get_linked_list(x.key).list_prepend(x)
 
-    def delete(self, x: LinkedListNode) -> None:
-        self._get_linked_list(x.key).delete(x)
+    def chained_hash_delete(self, x: LinkedListNode) -> None:
+        self._get_linked_list(x.key).list_delete(x)
 
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}({self.table})"

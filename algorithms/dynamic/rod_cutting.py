@@ -1,10 +1,13 @@
-def cut(p: list[int], n: int) -> int:
+def cut_rod(p: list[int], n: int) -> int:
     if not n:
         return 0
+
     q = 0
+
     for i in range(0, n):
-        t = p[i] + cut(p, n - i - 1)
+        t = p[i] + cut_rod(p, n - i - 1)
         q = max(q, t)
+
     return q
 
 
@@ -23,7 +26,7 @@ def bottom_up_rod_cut(p: list[int], n: int) -> int:
     return r[n]
 
 
-def aux(p: list[int], n: int, r: list[int]) -> int:
+def memoized_cut_rod_aux(p: list[int], n: int, r: list[int]) -> int:
     if r[n] >= 0:
         return r[n]
 
@@ -31,8 +34,9 @@ def aux(p: list[int], n: int, r: list[int]) -> int:
         q = 0
     else:
         q = -1
+
         for i in range(n):
-            t = p[i] + aux(p, n - i - 1, r)
+            t = p[i] + memoized_cut_rod_aux(p, n - i - 1, r)
             q = max(q, t)
 
     r[n] = q
@@ -40,5 +44,7 @@ def aux(p: list[int], n: int, r: list[int]) -> int:
 
 
 def memoized_cut_rod(p: list[int], n: int) -> int:
+    global r
     r = [-1] * (n + 1)
-    return aux(p, n, r)
+
+    return memoized_cut_rod_aux(p, n, r)

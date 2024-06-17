@@ -12,21 +12,21 @@ class Stack:
             raise OverflowError()
 
         self.top += 1
-        self.stack[self.top] = x
+        self.stack.append(x)
 
     def pop(self) -> int:
-        if self.is_empty():
+        if self.stack_empty():
             raise UnderflowError()
 
         self.top -= 1
         return self.stack[self.top + 1]
 
     def multi_pop(self, n: int) -> None:
-        while n and not self.is_empty():
+        while n and not self.stack_empty():
             self.pop()
             n -= 1
 
-    def is_empty(self) -> bool:
+    def stack_empty(self) -> bool:
         return self.top == -1
 
     def __repr__(self) -> str:

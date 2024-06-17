@@ -17,14 +17,14 @@ class LinkedList:
     def __init__(self) -> None:
         self.head: LinkedListNode | None = None
 
-    def search(self, key: int) -> LinkedListNode | None:
+    def list_search(self, key: int) -> LinkedListNode | None:
         x = self.head
         while x is not None and x.key != key:
             x = x.next
 
         return x
 
-    def prepend(self, x: LinkedListNode) -> None:
+    def list_prepend(self, x: LinkedListNode) -> None:
         x.next = self.head
         x.prev = None
 
@@ -34,7 +34,7 @@ class LinkedList:
         self.head = x
 
     @staticmethod
-    def insert(x: LinkedListNode, y: LinkedListNode) -> None:
+    def list_insert(x: LinkedListNode, y: LinkedListNode) -> None:
         x.next = y.next
         x.prev = y
 
@@ -43,7 +43,7 @@ class LinkedList:
 
         y.next = x
 
-    def delete(self, x: LinkedListNode) -> None:
+    def list_delete(self, x: LinkedListNode) -> None:
         if x.prev is not None:
             x.prev.next = x.next
         else:
