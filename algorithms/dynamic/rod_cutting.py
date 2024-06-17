@@ -1,3 +1,6 @@
+R = []
+
+
 def cut_rod(p: list[int], n: int) -> int:
     if not n:
         return 0
@@ -44,7 +47,8 @@ def memoized_cut_rod_aux(p: list[int], n: int, r: list[int]) -> int:
 
 
 def memoized_cut_rod(p: list[int], n: int) -> int:
-    global r
-    r = [-1] * (n + 1)
+    global R
+    if not R:
+        R = [-1] * (n + 1)
 
-    return memoized_cut_rod_aux(p, n, r)
+    return memoized_cut_rod_aux(p, n, R)
