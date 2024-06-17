@@ -1,29 +1,49 @@
-from random import randint
+import math
+import random
+
+from algorithms.searching.select import select
 
 
-def partition(arr: list[int], p: int, r: int) -> int:
-    x = arr[r - 1]
+def partition(a: list[int], p: int, r: int) -> int:
+    x = a[r - 1]
     i = p - 1
+
     for j in range(p, r - 1):
-        if arr[j] <= x:
+        if a[j] <= x:
             i += 1
-            arr[i], arr[j] = arr[j], arr[i]
-    arr[i + 1], arr[r - 1] = arr[r - 1], arr[i + 1]
+            a[i], a[j] = a[j], a[i]
+
+    a[i + 1], a[r - 1] = a[r - 1], a[i + 1]
     return i + 1
 
 
-def randomized_partition(arr: list[int], p: int, r: int) -> int:
-    i = randint(p, r - 1)
-    arr[i], arr[r - 1] = arr[r - 1], arr[i]
-    return partition(arr, p, r)
+def randomized_partition(a: list[int], p: int, r: int) -> int:
+    i = random.randint(p, r - 1)
+    a[i], a[r - 1] = a[r - 1], a[i]
+    return partition(a, p, r)
 
 
-def partition_around(arr: list[int], p: int, r: int, x: int) -> int:
-    if x not in arr:
+def partition_around(a: list[int], p: int, r: int, x: int) -> int:
+    if x not in a:
         raise ValueError()
 
     i = 0
-    while arr[i] != x:
+    while a[i] != x:
         i += 1
-    arr[i], arr[r - 1] = arr[r - 1], arr[i]
-    return partition(arr, p, r)
+
+    a[i], a[r - 1] = a[r - 1], a[i]
+    return partition(a, p, r)
+
+
+def good_partition(a: list[int], p: int, r: int) -> int:
+    n = r - p
+    m = math.ceil(n / 5)
+    b = []
+
+    for i in range(m):
+        q = p + 5 * i
+        a[q : q + 5] = sorted(a[q : q + 5])
+        b.append(a[q + 2])
+
+    x = select(b, 0, m, m // 2)
+    return partition_around(a, p, r, x)

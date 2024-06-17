@@ -7,6 +7,7 @@ class Queue:
 
     def enqueue(self, x: int) -> None:
         self.queue[self.tail] = x
+
         if self.tail == self.size:
             self.tail = 0
         else:
@@ -14,11 +15,13 @@ class Queue:
 
     def dequeue(self) -> int:
         x = self.queue[self.head]
+
         if self.head == self.size:
             self.head = 0
         else:
             self.head += 1
+
         return x
 
     def __repr__(self) -> str:
-        return f"Queue({self.queue})"
+        return f"{self.__class__.__name__}({self.queue})"

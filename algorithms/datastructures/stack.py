@@ -1,5 +1,4 @@
-class UnderflowError(Exception):
-    pass
+from algorithms.underflow import UnderflowError
 
 
 class Stack:
@@ -11,12 +10,14 @@ class Stack:
     def push(self, x: int) -> None:
         if self.top == self.size:
             raise OverflowError()
+
         self.top += 1
         self.stack[self.top] = x
 
     def pop(self) -> int:
         if self.is_empty():
             raise UnderflowError()
+
         self.top -= 1
         return self.stack[self.top + 1]
 
@@ -29,4 +30,4 @@ class Stack:
         return self.top == -1
 
     def __repr__(self) -> str:
-        return f"Stack({self.stack})"
+        return f"{self.__class__.__name__}({self.stack})"

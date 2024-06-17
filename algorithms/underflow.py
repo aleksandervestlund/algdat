@@ -1,0 +1,2 @@
+class UnderflowError(ArithmeticError):
+    pass

@@ -1,10 +1,11 @@
 from algorithms.sorting.helpers.merge import merge
 
 
-def merge_sort(arr: list[int], p: int, r: int) -> None:
+def merge_sort(a: list[int], p: int, r: int) -> None:
     if p >= r - 1:
         return
+
     q = (p + r) // 2
-    merge_sort(arr, p, q)
-    merge_sort(arr, q, r)
-    merge(arr, p, q, r)
+    merge_sort(a, p, q)
+    merge_sort(a, q, r)
+    merge(a, p, q, r)
