@@ -21,21 +21,26 @@ class LinkedList:
         x = self.head
         while x is not None and x.key != key:
             x = x.next
+
         return x
 
     def prepend(self, x: LinkedListNode) -> None:
         x.next = self.head
         x.prev = None
+
         if self.head is not None:
             self.head.prev = x
+
         self.head = x
 
     @staticmethod
     def insert(x: LinkedListNode, y: LinkedListNode) -> None:
         x.next = y.next
         x.prev = y
+
         if y.next is not None:
             y.next.prev = x
+
         y.next = x
 
     def delete(self, x: LinkedListNode) -> None:
@@ -43,6 +48,7 @@ class LinkedList:
             x.prev.next = x.next
         else:
             self.head = x.next
+
         if x.next is not None:
             x.next.prev = x.prev
         # del x
@@ -50,7 +56,9 @@ class LinkedList:
     def __repr__(self) -> str:
         x = self.head
         keys = []
+
         while x is not None:
             keys.append(x.key)
             x = x.next
-        return f"LinkedList({keys})"
+
+        return f"{self.__class__.__name__}({keys})"

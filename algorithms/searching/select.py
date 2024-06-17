@@ -25,12 +25,15 @@ def select(a: list[int], p: int, r: int, i: int) -> int:
         for j in range(p + 1, r + 1):
             if a[p] > a[j]:
                 a[p], a[j] = a[j], a[p]
+
         if i == 1:
             return a[p]
+
         p += 1
         i += 1
 
     g = (r - p) // 5
+
     for j in range(p, p + g):
         a[j : j + 5 * g : g] = sorted(a[j : j + 5 * g : g])
 
