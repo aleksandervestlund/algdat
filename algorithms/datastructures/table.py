@@ -1,8 +1,11 @@
+from dataclasses import dataclass, field
+
+
+@dataclass(slots=True)
 class Table:
-    def __init__(self) -> None:
-        self.data: list[int] = []
-        self.size = 0
-        self.num = 0
+    data: list[int] = field(default_factory=list)
+    size: int = field(default=0, repr=False, init=False)
+    num: int = field(default=0, repr=False, init=False)
 
     def table_insert(self, key: int) -> None:
         if not self.size:
@@ -14,6 +17,3 @@ class Table:
 
         self.data.append(key)
         self.num += 1
-
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}({self.data})"

@@ -1,13 +1,14 @@
+from dataclasses import dataclass, field
 from typing import Any
 
 from algorithms.underflow import UnderflowError
 
 
+@dataclass(slots=True)
 class Stack:
-    def __init__(self, size: int) -> None:
-        self.stack: list[Any] = []
-        self.size = size
-        self.top = -1
+    size: int = field(repr=False)
+    stack: list[Any] = field(default_factory=list)
+    top: int = field(default=-1, init=False, repr=False)
 
     def peek(self) -> Any:
         if self.stack_empty():
@@ -36,6 +37,3 @@ class Stack:
 
     def stack_empty(self) -> bool:
         return self.top == -1
-
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}({self.stack})"

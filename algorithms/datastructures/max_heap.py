@@ -1,10 +1,12 @@
+from dataclasses import dataclass, field
+
 from algorithms.underflow import UnderflowError
 
 
+@dataclass(slots=True)
 class MaxHeap:
-    def __init__(self) -> None:
-        self.heap: list[int] = []
-        self.size = 0
+    heap: list[int] = field(default_factory=list)
+    size: int = field(default=0, init=False, repr=False)
 
     @staticmethod
     def left(i: int) -> int:
@@ -75,6 +77,3 @@ class MaxHeap:
             self.heap[0], self.heap[i] = self.heap[i], self.heap[0]
             self.size -= 1
             self.max_heapify(0)
-
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}({self.heap})"

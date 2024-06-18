@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(frozen=True, slots=True)
 class HuffmanNode:
     freq: int = 0
     symbol: str = ""
@@ -17,14 +17,10 @@ def huffman(c: dict[str, int]) -> HuffmanNode:
 
     for _ in range(n - 1):
         q.sort(key=lambda x: x.freq)
-
-        z = HuffmanNode()
         x = q.pop(0)
         y = q.pop(0)
 
-        z.left = x
-        z.right = y
-        z.freq = x.freq + y.freq
+        z = HuffmanNode(freq=x.freq + y.freq, left=x, right=y)
         q.append(z)
 
     return q[0]

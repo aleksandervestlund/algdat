@@ -1,22 +1,19 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass(slots=True)
 class TreeNode:
     key: int
-    parent: TreeNode | None = None
+    parent: TreeNode | None = field(default=None, repr=False)
     left: TreeNode | None = None
     right: TreeNode | None = None
 
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}({self.key}: ({self.left}, {self.right}))"
 
-
+@dataclass(slots=True)
 class Tree:
-    def __init__(self, root: TreeNode) -> None:
-        self.root = root
+    root: TreeNode | None = None
 
     def tree_inorder_walk(self, x: TreeNode | None) -> None:
         if x is not None:
@@ -93,6 +90,3 @@ class Tree:
             self.transplant(z, y)
             y.left = z.left
             y.left.parent = y
-
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}({self.root})"

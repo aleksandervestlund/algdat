@@ -1,10 +1,15 @@
+from dataclasses import dataclass, field
+
 from algorithms.datastructures.linked_list import LinkedList, LinkedListNode
 
 
+@dataclass(slots=True)
 class ChainedHashTable:
-    def __init__(self, size: int) -> None:
-        self.table = [LinkedList() for _ in range(size)]
-        self.size = size
+    size: int = field(repr=False)
+    table: list[LinkedList] = field(init=False)
+
+    def __post_init__(self) -> None:
+        self.table = [LinkedList() for _ in range(self.size)]
 
     def _get_linked_list(self, key: int) -> LinkedList:
         return self.table[self._hash(key)]
@@ -20,6 +25,3 @@ class ChainedHashTable:
 
     def chained_hash_delete(self, x: LinkedListNode) -> None:
         self._get_linked_list(x.key).list_delete(x)
-
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}({self.table})"

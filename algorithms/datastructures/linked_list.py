@@ -1,21 +1,18 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass(slots=True)
 class LinkedListNode:
     key: int
-    prev: LinkedListNode | None = None
-    next: LinkedListNode | None = None
-
-    def __repr__(self) -> str:
-        return f"{self.__class__.__name__}({self.key})"
+    prev: LinkedListNode | None = field(default=None, repr=False)
+    next: LinkedListNode | None = field(default=None, repr=False)
 
 
+@dataclass(slots=True)
 class LinkedList:
-    def __init__(self) -> None:
-        self.head: LinkedListNode | None = None
+    head: LinkedListNode | None = None
 
     def list_search(self, key: int) -> LinkedListNode | None:
         x = self.head
