@@ -12,7 +12,6 @@ def bfs(g: Graph, s: Vertex) -> None:
     s.color = Status.VISITING
     s.d = 0
     s.pi = None
-
     q = Queue(len(g.v))
     q.enqueue(s)
 

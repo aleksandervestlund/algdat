@@ -15,7 +15,7 @@ class Vertex:
 
     def __repr__(self) -> str:
         return (
-            f"{self.number}: c={self.color.value:>5}, d={self.d:>3}, "
+            f"{self.number}: c={self.color.value:>5}, d={self.d:>4}, "
             f"f={self.f:>4}, π={self.pi.number if self.pi is not None else None}"
         )
 
