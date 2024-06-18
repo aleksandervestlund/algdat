@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(slots=True)
 class LinkedListNode:
     key: int
     prev: LinkedListNode | None = None
@@ -55,7 +55,7 @@ class LinkedList:
 
     def __repr__(self) -> str:
         x = self.head
-        keys = []
+        keys: list[int] = []
 
         while x is not None:
             keys.append(x.key)

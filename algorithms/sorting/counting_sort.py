@@ -1,5 +1,5 @@
 def counting_sort(a: list[int], n: int, k: int) -> list[int]:
-    b = []
+    b: list[int] = []
     c = [0] * k
 
     for i in range(n):

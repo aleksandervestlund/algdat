@@ -38,7 +38,7 @@ def partition_around(a: list[int], p: int, r: int, x: int) -> int:
 def good_partition(a: list[int], p: int, r: int) -> int:
     n = r - p
     m = math.ceil(n / 5)
-    b = []
+    b: list[int] = []
 
     for i in range(m):
         q = p + 5 * i

@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 from algorithms.status import Status
 
 
-@dataclass
+@dataclass(slots=True)
 class Vertex:
     number: int
     color = Status.UNVISITED
@@ -16,14 +16,11 @@ class Vertex:
     def __repr__(self) -> str:
         return (
             f"{self.number}: c={self.color.value:>5}, d={self.d:>3}, "
-            f"f={self.f:>4}, π={self.pi.number if self.pi else None}"
+            f"f={self.f:>4}, π={self.pi.number if self.pi is not None else None}"
         )
 
     def __hash__(self) -> int:
         return id(self)
-
-    def __eq__(self, other: object) -> bool:
-        return isinstance(other, Vertex) and hash(other) == hash(self)
 
 
 @dataclass

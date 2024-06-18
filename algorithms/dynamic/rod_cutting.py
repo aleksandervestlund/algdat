@@ -1,4 +1,4 @@
-R = []
+R: list[int] = []
 
 
 def cut_rod(p: list[int], n: int) -> int:
