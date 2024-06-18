@@ -1,20 +1,28 @@
+from typing import Any
+
 from algorithms.underflow import UnderflowError
 
 
 class Stack:
     def __init__(self, size: int) -> None:
-        self.stack: list[int] = []
+        self.stack: list[Any] = []
         self.size = size
         self.top = -1
 
-    def push(self, x: int) -> None:
+    def peek(self) -> Any:
+        if self.stack_empty():
+            raise UnderflowError()
+
+        return self.stack[self.top]
+
+    def push(self, x: Any) -> None:
         if self.top == self.size:
             raise OverflowError()
 
         self.top += 1
         self.stack.append(x)
 
-    def pop(self) -> int:
+    def pop(self) -> Any:
         if self.stack_empty():
             raise UnderflowError()
 

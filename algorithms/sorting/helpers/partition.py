@@ -1,7 +1,7 @@
 import math
 import random
 
-from algorithms.searching.select import select
+from algorithms.sorting.helpers.select import select
 
 
 def partition(a: list[int], p: int, r: int) -> int:
