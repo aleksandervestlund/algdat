@@ -44,7 +44,7 @@ class MaxHeap:
         self.heap[i] = k
 
         while i and self.heap[(j := parent(i))] < self.heap[i]:
-            self.heap[i], self.heap[j] = (self.heap[j], self.heap[i])
+            self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
             i = j
 
     def max_heap_insert(self, key: int, n: int) -> None:
