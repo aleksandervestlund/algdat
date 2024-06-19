@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from algorithms.datastructures.graph import Vertex
+from source.datastructures.graph import Vertex
 
 
 def make_set(x: Vertex) -> None:

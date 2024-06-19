@@ -1,5 +1,5 @@
-from algorithms.datastructures.graph import Graph, Vertex
-from algorithms.datastructures.minimum_priority_queue import (
+from source.datastructures.graph import Graph, Vertex
+from source.datastructures.minimum_priority_queue import (
     MinimumPriorityQueue,
 )
 

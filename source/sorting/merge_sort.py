@@ -1,4 +1,4 @@
-from algorithms.sorting.helpers.merge import merge
+from source.sorting.helpers.merge import merge
 
 
 def merge_sort(a: list[int], p: int, r: int) -> None:

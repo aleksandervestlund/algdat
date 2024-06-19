@@ -1,5 +1,5 @@
-from algorithms.datastructures.graph import Graph, Vertex
-from algorithms.datastructures.set import find_set, make_set, union
+from source.datastructures.graph import Graph, Vertex
+from source.datastructures.set import find_set, make_set, union
 
 
 def mst_kruskal(

@@ -1,4 +1,4 @@
-from algorithms.sorting.helpers.partition import (
+from source.sorting.helpers.partition import (
     partition,
     randomized_partition,
 )

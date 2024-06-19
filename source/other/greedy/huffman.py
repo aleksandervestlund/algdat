@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from algorithms.datastructures.minimum_priority_queue import (
+from source.datastructures.minimum_priority_queue import (
     MinimumPriorityQueue,
 )
 

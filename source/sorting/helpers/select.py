@@ -1,6 +1,6 @@
 from math import ceil
 
-from algorithms.sorting.helpers.partition import (
+from source.sorting.helpers.partition import (
     partition_around,
     randomized_partition,
 )

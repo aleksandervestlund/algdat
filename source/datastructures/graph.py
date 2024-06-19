@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 
-from algorithms.status import Status
+from source.helpers.status import Status
 
 
 @dataclass(slots=True)

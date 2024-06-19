@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 
-from algorithms.datastructures.linked_list import LinkedList, LinkedListNode
+from source.datastructures.linked_list import LinkedList, LinkedListNode
 
 
 @dataclass(slots=True)
