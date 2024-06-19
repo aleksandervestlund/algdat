@@ -8,13 +8,13 @@ from algorithms.status import Status
 @dataclass(slots=True)
 class Vertex:
     name: str | int
-    color: Status = Status.UNVISITED
+    color: Status = field(default=Status.UNVISITED, repr=False)
     pi: Vertex | None = field(default=None)
     p: Vertex | None = field(default=None, repr=False)
     d: float = field(default=float("-inf"), repr=False)
     f: float = field(default=float("-inf"), repr=False)
     rank: int = field(default=0, repr=False)
-    key: float = float("inf")
+    key: float = field(default=float("inf"))
 
     def __hash__(self) -> int:
         return id(self)

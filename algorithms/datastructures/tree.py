@@ -3,6 +3,26 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 
+def tree_minimum(x: TreeNode) -> TreeNode:
+    while x.left is not None:
+        x = x.left
+
+    return x
+
+
+def tree_successor(x: TreeNode) -> TreeNode | None:
+    if x.right is not None:
+        return tree_minimum(x.right)
+
+    y = x.parent
+
+    while y is not None and x == y.right:
+        x = y
+        y = y.parent
+
+    return y
+
+
 @dataclass(slots=True)
 class TreeNode:
     key: int
@@ -45,26 +65,6 @@ class Tree:
         else:
             y.right = z
 
-    @staticmethod
-    def tree_minimum(x: TreeNode) -> TreeNode:
-        while x.left is not None:
-            x = x.left
-
-        return x
-
-    @staticmethod
-    def tree_successor(x: TreeNode) -> TreeNode | None:
-        if x.right is not None:
-            return Tree.tree_minimum(x.right)
-
-        y = x.parent
-
-        while y is not None and x == y.right:
-            x = y
-            y = y.parent
-
-        return y
-
     def transplant(self, u: TreeNode, v: TreeNode | None) -> None:
         if u.parent is None:
             self.root = v
@@ -82,7 +82,7 @@ class Tree:
         elif z.right is None:
             self.transplant(z, z.left)
         else:
-            if (y := Tree.tree_minimum(z.right)) != z.parent:
+            if (y := tree_minimum(z.right)) != z.parent:
                 self.transplant(y, y.right)
                 y.right = z.right
                 y.right.parent = y

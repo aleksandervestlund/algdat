@@ -3,6 +3,16 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 
+def list_insert(x: LinkedListNode, y: LinkedListNode) -> None:
+    x.next = y.next
+    x.prev = y
+
+    if y.next is not None:
+        y.next.prev = x
+
+    y.next = x
+
+
 @dataclass(slots=True)
 class LinkedListNode:
     key: int
@@ -10,7 +20,7 @@ class LinkedListNode:
     next: LinkedListNode | None = field(default=None, repr=False)
 
 
-@dataclass(slots=True)
+@dataclass(slots=True, repr=False)
 class LinkedList:
     head: LinkedListNode | None = None
 
@@ -29,16 +39,6 @@ class LinkedList:
             self.head.prev = x
 
         self.head = x
-
-    @staticmethod
-    def list_insert(x: LinkedListNode, y: LinkedListNode) -> None:
-        x.next = y.next
-        x.prev = y
-
-        if y.next is not None:
-            y.next.prev = x
-
-        y.next = x
 
     def list_delete(self, x: LinkedListNode) -> None:
         if x.prev is not None:

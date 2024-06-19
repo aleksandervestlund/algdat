@@ -3,26 +3,26 @@ from dataclasses import dataclass, field
 from algorithms.underflow import UnderflowError
 
 
+def left(i: int) -> int:
+    return 2 * i + 1
+
+
+def right(i: int) -> int:
+    return 2 * i + 2
+
+
+def parent(i: int) -> int:
+    return (i - 1) // 2
+
+
 @dataclass(slots=True)
 class MaxHeap:
     heap: list[int] = field(default_factory=list)
     size: int = field(default=0, init=False, repr=False)
 
-    @staticmethod
-    def left(i: int) -> int:
-        return 2 * i + 1
-
-    @staticmethod
-    def right(i: int) -> int:
-        return 2 * i + 2
-
-    @staticmethod
-    def parent(i: int) -> int:
-        return (i - 1) // 2
-
     def max_heapify(self, i: int) -> None:
-        l = MaxHeap.left(i)
-        r = MaxHeap.right(i)
+        l = left(i)
+        r = right(i)
         m = l if l < self.size and self.heap[l] > self.heap[i] else i
 
         if r < self.size and self.heap[r] > self.heap[m]:
@@ -43,7 +43,7 @@ class MaxHeap:
         i = self.heap.index(x)
         self.heap[i] = k
 
-        while i and self.heap[(j := MaxHeap.parent(i))] < self.heap[i]:
+        while i and self.heap[(j := parent(i))] < self.heap[i]:
             self.heap[i], self.heap[j] = (self.heap[j], self.heap[i])
             i = j
 
