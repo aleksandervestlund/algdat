@@ -1,19 +1,19 @@
 import bisect
-from collections.abc import Callable
 from dataclasses import dataclass, field
 from typing import Any
 
 
 @dataclass(slots=True)
 class MinimumPriorityQueue:
-    priority: Callable[[Any], int | float] = field(
-        default=lambda x: x, repr=False
-    )
     key: str | None = field(default=None, repr=False)
     queue: list[Any] = field(default_factory=list, init=False)
 
     def insert(self, value: Any) -> None:
-        bisect.insort(self.queue, value, key=self.priority)
+        bisect.insort(
+            self.queue,
+            value,
+            key=lambda x: (x if self.key is None else getattr(x, self.key)),
+        )
 
     def extract_min(self) -> Any:
         return self.queue.pop(0)

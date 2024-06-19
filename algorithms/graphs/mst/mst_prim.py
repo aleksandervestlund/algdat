@@ -12,7 +12,7 @@ def mst_prim(
         u.pi = None
 
     r.key = 0
-    q = MinimumPriorityQueue(priority=lambda x: x.key, key="key")
+    q = MinimumPriorityQueue(key="key")
 
     for u in g.V:
         q.insert(u)

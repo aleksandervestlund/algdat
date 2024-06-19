@@ -16,7 +16,7 @@ class HuffmanNode:
 
 
 def huffman(c: dict[str, int]) -> HuffmanNode:
-    q = MinimumPriorityQueue(priority=lambda x: x.freq)
+    q = MinimumPriorityQueue(key="freq")
 
     for s, f in c.items():
         q.insert(HuffmanNode(symbol=s, freq=f))
