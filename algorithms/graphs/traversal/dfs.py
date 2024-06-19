@@ -8,14 +8,14 @@ TIME = 0
 
 
 def dfs(g: Graph) -> None:
-    for u in g.v:
+    for u in g.V:
         u.color = Status.UNVISITED
         u.pi = None  # Already None by default...
 
     global TIME
     TIME = 0
 
-    for u in g.v:
+    for u in g.V:
         if u.color is Status.UNVISITED:
             dfs_visit(g, u)
 
@@ -38,12 +38,12 @@ def dfs_visit(g: Graph, u: Vertex) -> None:
 
 
 def iterative_dfs_visit(g: Graph, s: Vertex) -> None:
-    for u in g.v - {s}:
+    for u in g.V - {s}:
         u.color = Status.UNVISITED
         u.pi = None
 
     s.pi = None
-    q = Stack(len(g.v))
+    q = Stack(len(g.V))
     q.push(s)
 
     while not q.stack_empty():

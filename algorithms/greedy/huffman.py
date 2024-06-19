@@ -2,6 +2,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from algorithms.datastructures.minimum_priority_queue import (
+    MinimumPriorityQueue,
+)
+
 
 @dataclass(frozen=True, slots=True)
 class HuffmanNode:
@@ -12,15 +16,16 @@ class HuffmanNode:
 
 
 def huffman(c: dict[str, int]) -> HuffmanNode:
-    n = len(c)
-    q = [HuffmanNode(symbol=s, freq=f) for s, f in c.items()]
+    q = MinimumPriorityQueue(priority=lambda x: x.freq)
 
-    for _ in range(n - 1):
-        q.sort(key=lambda x: x.freq)
-        x = q.pop(0)
-        y = q.pop(0)
+    for s, f in c.items():
+        q.insert(HuffmanNode(symbol=s, freq=f))
 
-        z = HuffmanNode(freq=x.freq + y.freq, left=x, right=y)
-        q.append(z)
+    while len(q) > 1:
+        x = q.extract_min()
+        y = q.extract_min()
 
-    return q[0]
+        z = HuffmanNode(left=x, right=y, freq=x.freq + y.freq)
+        q.insert(z)
+
+    return q.extract_min()

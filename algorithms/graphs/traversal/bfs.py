@@ -4,7 +4,7 @@ from algorithms.status import Status
 
 
 def bfs(g: Graph, s: Vertex) -> None:
-    for u in g.v - {s}:
+    for u in g.V - {s}:
         u.color = Status.UNVISITED
         u.d = float("inf")
         u.pi = None
@@ -12,7 +12,7 @@ def bfs(g: Graph, s: Vertex) -> None:
     s.color = Status.VISITING
     s.d = 0
     s.pi = None
-    q = Queue(len(g.v))
+    q = Queue(len(g.V))
     q.enqueue(s)
 
     while not q.is_empty():
