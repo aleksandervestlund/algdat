@@ -4,7 +4,7 @@ from typing import Any
 
 
 @dataclass(slots=True)
-class MinimumPriorityQueue:
+class PriorityQueue:
     key: str | None = field(default=None, repr=False)
     queue: list[Any] = field(default_factory=list, init=False)
 
@@ -12,14 +12,30 @@ class MinimumPriorityQueue:
         bisect.insort(
             self.queue,
             value,
-            key=lambda x: (x if self.key is None else getattr(x, self.key)),
+            key=lambda x: x if self.key is None else getattr(x, self.key),
         )
 
     def extract_min(self) -> Any:
         return self.queue.pop(0)
 
+    def extract_max(self) -> Any:
+        return self.queue.pop()
+
     def decrease_key(self, item: Any, value: float) -> None:
         if self.key is not None:
+            if value > getattr(item, self.key):
+                raise ValueError()
+
+            setattr(item, self.key, value)
+
+        self.queue.remove(item)
+        self.insert(item)
+
+    def increase_key(self, item: Any, value: float) -> None:
+        if self.key is not None:
+            if value < getattr(item, self.key):
+                raise ValueError()
+
             setattr(item, self.key, value)
 
         self.queue.remove(item)

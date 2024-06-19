@@ -2,9 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from source.datastructures.minimum_priority_queue import (
-    MinimumPriorityQueue,
-)
+from source.datastructures.priority_queue import PriorityQueue
 
 
 @dataclass(frozen=True, slots=True)
@@ -16,7 +14,7 @@ class HuffmanNode:
 
 
 def huffman(c: dict[str, int]) -> HuffmanNode:
-    q = MinimumPriorityQueue(key="freq")
+    q = PriorityQueue(key="freq")
 
     for s, f in c.items():
         q.insert(HuffmanNode(symbol=s, freq=f))

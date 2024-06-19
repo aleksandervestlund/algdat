@@ -1,7 +1,5 @@
 from source.datastructures.graph import Graph, Vertex
-from source.datastructures.minimum_priority_queue import (
-    MinimumPriorityQueue,
-)
+from source.datastructures.priority_queue import PriorityQueue
 
 
 def mst_prim(
@@ -12,7 +10,7 @@ def mst_prim(
         u.pi = None
 
     r.key = 0
-    q = MinimumPriorityQueue(key="key")
+    q = PriorityQueue(key="key")
 
     for u in g.V:
         q.insert(u)
