@@ -12,7 +12,7 @@ def find_set(x: Vertex | None) -> Vertex | None:
     if x is None:
         return x
 
-    if x != x.p:
+    if x is not x.p:
         x.p = find_set(x.p)
 
     return x.p

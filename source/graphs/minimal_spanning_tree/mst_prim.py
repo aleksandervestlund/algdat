@@ -21,5 +21,5 @@ def mst_prim(
         for v in g.adj[u]:
             if v in q and w[(u, v)] < v.key:
                 v.pi = u
-                v.key = w[(u, v)]  # Also done by decrease_key(...)
+                # v.key = w[(u, v)]
                 q.decrease_key(v, w[(u, v)])

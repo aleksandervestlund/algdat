@@ -5,6 +5,25 @@ from dataclasses import dataclass, field
 from source.helpers.status import Status
 
 
+def topological_sort(g: Graph) -> list[Vertex]:
+    """Modifies DFS to find topological order."""
+
+    def dfs_visit(u: Vertex) -> None:
+        u.color = Status.VISITED
+        for v in g.adj[u]:
+            if v.color is Status.UNVISITED:
+                dfs_visit(v)
+        topologic.append(u)
+
+    topologic = []
+    for u in g.V:
+        u.color = Status.UNVISITED
+    for u in g.V:
+        if u.color is Status.UNVISITED:
+            dfs_visit(u)
+    return list(reversed(topologic))
+
+
 @dataclass(slots=True)
 class Vertex:
     name: str | int
@@ -19,8 +38,14 @@ class Vertex:
     def __hash__(self) -> int:
         return id(self)
 
+    def __repr__(self) -> str:
+        return (
+            f"{self.__class__.__name__}(name={self.name}, "
+            f"π={self.pi.name if self.pi is not None else None}, d={self.d})"
+        )
 
-@dataclass(slots=True)
+
+@dataclass(slots=True, repr=False)
 class Graph:
     adj: dict[Vertex, set[Vertex]] = field(default_factory=dict)
 
@@ -30,4 +55,7 @@ class Graph:
 
     @property
     def E(self) -> set[tuple[Vertex, Vertex]]:
-        return {(u, v) for u in self.adj for v in self.adj[u]}
+        return {(u, v) for u, vs in self.adj.items() for v in vs}
+
+    def __repr__(self) -> str:
+        return f"{self.__class__.__name__}({self.V})"
