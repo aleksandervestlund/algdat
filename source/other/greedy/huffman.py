@@ -1,16 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
-
+from source.datastructures.huffman_node import HuffmanNode
 from source.datastructures.priority_queue import PriorityQueue
-
-
-@dataclass(frozen=True, slots=True)
-class HuffmanNode:
-    freq: int = 0
-    symbol: str = ""
-    left: HuffmanNode | None = None
-    right: HuffmanNode | None = None
 
 
 def huffman(c: dict[str, int]) -> HuffmanNode:
