@@ -6,7 +6,7 @@ from source.graphs.single_source_shortest_paths.helpers.relax import relax
 
 
 def bellman_ford(
-    g: Graph, w: dict[tuple[Vertex, Vertex], int], s: Vertex
+    g: Graph, w: dict[tuple[Vertex, Vertex], float], s: Vertex
 ) -> bool:
     initialize_single_source(g, s)
 

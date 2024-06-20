@@ -6,7 +6,9 @@ from source.graphs.single_source_shortest_paths.helpers.initialize_single_source
 from source.graphs.single_source_shortest_paths.helpers.relax import relax
 
 
-def dijkstra(g: Graph, w: dict[tuple[Vertex, Vertex], int], s: Vertex) -> None:
+def dijkstra(
+    g: Graph, w: dict[tuple[Vertex, Vertex], float], s: Vertex
+) -> None:
     initialize_single_source(g, s)
     S = set()
     q = PriorityQueue(key="d")
