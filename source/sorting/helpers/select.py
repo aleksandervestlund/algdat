@@ -7,6 +7,7 @@ from source.sorting.helpers.partition import (
 
 
 def randomized_select(a: list[int], p: int, r: int, i: int) -> int:
+    """O(n)."""
     if p == r - 1:
         return a[p]
 
@@ -21,6 +22,7 @@ def randomized_select(a: list[int], p: int, r: int, i: int) -> int:
 
 
 def select(a: list[int], p: int, r: int, i: int) -> int:
+    """O(n)."""
     while (r - p + 1) % 5 != 0:
         for j in range(p + 1, r + 1):
             if a[p] > a[j]:

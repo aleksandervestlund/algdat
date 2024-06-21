@@ -18,10 +18,13 @@ class ChainedHashTable:
         return key % self.size
 
     def chained_hash_search(self, key: int) -> LinkedListNode | None:
+        """O(n)."""
         return self._get_linked_list(key).list_search(key)
 
     def chained_hash_insert(self, x: LinkedListNode) -> None:
+        """O(1)."""
         self._get_linked_list(x.key).list_prepend(x)
 
     def chained_hash_delete(self, x: LinkedListNode) -> None:
+        """O(1)."""
         self._get_linked_list(x.key).list_delete(x)

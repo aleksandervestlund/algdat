@@ -1,10 +1,12 @@
-from source.sorting.helpers.partition import (
-    partition,
-    randomized_partition,
-)
+from source.sorting.helpers.partition import partition, randomized_partition
 
 
 def quicksort(a: list[int], p: int, r: int) -> None:
+    """Best-case: Θ(n*lg(n)) (sorted).
+    Worst-case: Θ(n^2) (sorted, but reversed).
+    Average-case: Θ(n*lg(n)).
+    In general: Ω(n*lg(n)), O(n^2), Θ(?).
+    """
     if p >= r - 1:
         return
 
@@ -14,6 +16,11 @@ def quicksort(a: list[int], p: int, r: int) -> None:
 
 
 def randomized_quicksort(a: list[int], p: int, r: int) -> None:
+    """Best-case: Θ(n*lg(n)).
+    Worst-case: Θ(n*lg(n)).
+    Average-case: Θ(n*lg(n)).
+    In general: Θ(n*lg(n)).
+    """
     if p >= r - 1:
         return
 

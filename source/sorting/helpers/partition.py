@@ -5,6 +5,7 @@ from source.sorting.helpers.select import select
 
 
 def partition(a: list[int], p: int, r: int) -> int:
+    """O(n)."""
     x = a[r - 1]
     i = p - 1
 
@@ -18,12 +19,14 @@ def partition(a: list[int], p: int, r: int) -> int:
 
 
 def randomized_partition(a: list[int], p: int, r: int) -> int:
+    """O(n)."""
     i = random.randint(p, r - 1)
     a[i], a[r - 1] = a[r - 1], a[i]
     return partition(a, p, r)
 
 
 def partition_around(a: list[int], p: int, r: int, x: int) -> int:
+    """O(n)."""
     if x not in a:
         raise ValueError()
 
@@ -36,6 +39,7 @@ def partition_around(a: list[int], p: int, r: int, x: int) -> int:
 
 
 def good_partition(a: list[int], p: int, r: int) -> int:
+    """O(n)."""
     n = r - p
     m = math.ceil(n / 5)
     b: list[int] = []

@@ -8,6 +8,7 @@ class Table:
     num: int = field(default=0, repr=False, init=False)
 
     def table_insert(self, key: int) -> None:
+        """O(n)."""
         if not self.size:
             self.size = 1
 

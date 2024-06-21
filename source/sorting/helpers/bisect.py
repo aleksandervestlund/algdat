@@ -1,4 +1,5 @@
 def bisect(a: list[int], p: int, r: int, v: int) -> int | None:
+    """O(lg(n))."""
     if p > r:
         return None
 
