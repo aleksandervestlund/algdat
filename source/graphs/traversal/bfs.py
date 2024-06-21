@@ -1,6 +1,5 @@
-from source.datastructures.graph import Graph, Vertex
+from source.datastructures.graph import Graph, Status, Vertex
 from source.datastructures.queue import Queue
-from source.helpers.status import Status
 
 
 def bfs(g: Graph, s: Vertex) -> None:

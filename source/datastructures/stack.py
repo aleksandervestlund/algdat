@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Any
 
-from source.helpers.underflow import UnderflowError
+from source.datastructures.helpers.underflow import UnderflowError
 
 
 @dataclass(slots=True)

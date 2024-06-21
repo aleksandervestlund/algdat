@@ -1,8 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from enum import Enum
 
-from source.helpers.status import Status
+
+class Status(Enum):
+    UNVISITED = "white"
+    VISITING = "gray"
+    VISITED = "black"
 
 
 def topological_sort(g: Graph) -> list[Vertex]:
@@ -15,7 +20,7 @@ def topological_sort(g: Graph) -> list[Vertex]:
                 dfs_visit(v)
         topologic.append(u)
 
-    topologic = []
+    topologic: list[Vertex] = []
     for u in g.V:
         u.color = Status.UNVISITED
     for u in g.V:

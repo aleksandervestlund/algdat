@@ -1,6 +1,5 @@
-from source.datastructures.graph import Graph, Vertex
+from source.datastructures.graph import Graph, Status, Vertex
 from source.datastructures.stack import Stack
-from source.helpers.status import Status
 
 
 # Should probably use a class to store the global variable...

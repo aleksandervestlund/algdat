@@ -1,5 +1,4 @@
-from source.datastructures.graph import Graph, Vertex
-from source.helpers.status import Status
+from source.datastructures.graph import Graph, Status, Vertex
 
 
 def traverse(g: Graph, u: Vertex) -> None:
