@@ -15,12 +15,12 @@ def traverse(g: Graph, u: Vertex) -> None:
     g.adj[u] = adjacent
 
 
-def traverse_2(g: Graph, u: Vertex) -> None:
+def traverse_marked(g: Graph, u: Vertex) -> None:
     print(u)
     u.color = Status.VISITING
 
     for v in g.adj[u]:
         if v.color is Status.UNVISITED:
-            traverse_2(g, v)
+            traverse_marked(g, v)
 
     u.color = Status.VISITED

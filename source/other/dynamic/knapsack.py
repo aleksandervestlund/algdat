@@ -1,5 +1,5 @@
 def knapsack(
-    n: int, W: int, w: list[int], v: list[int], matrix: bool = False
+    n: int, W: int, w: list[int], v: list[int]
 ) -> list[list[int]] | int:
     k = [[0] * (W + 1) for _ in range(n + 1)]
 
@@ -13,4 +13,4 @@ def knapsack(
                 y = k[i][j - w[i]] + v[i]
                 k[i + 1][j] = max(x, y)
 
-    return k if matrix else k[n][W]
+    return k[n][W]

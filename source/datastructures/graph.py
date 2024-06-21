@@ -27,13 +27,16 @@ def topological_sort(g: Graph) -> list[Vertex]:
 @dataclass(slots=True)
 class Vertex:
     name: str | int
-    color: Status = field(default=Status.UNVISITED, repr=False)
+    # BFS, DFS, Prim, relax, initialize-single-source
     pi: Vertex | None = field(default=None)
-    p: Vertex | None = field(default=None, repr=False)
+    # BFS, DFS, Bellman-Ford, Dijkstra, Johnson, relax, initailize-single-source
     d: float = field(default=float("-inf"), repr=False)
-    f: float = field(default=float("-inf"), repr=False)
-    rank: int = field(default=0, repr=False)
-    key: float = field(default=float("inf"))
+    # BFS, DFS, traverse
+    color: Status = field(default=Status.UNVISITED, repr=False)
+    f: float = field(default=float("-inf"), repr=False)  # DFS
+    p: Vertex | None = field(default=None, repr=False)  # set
+    rank: int = field(default=0, repr=False)  # set
+    key: float = field(default=float("inf"))  # Prim
 
     def __hash__(self) -> int:
         return id(self)

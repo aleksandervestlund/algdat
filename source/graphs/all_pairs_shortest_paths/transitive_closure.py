@@ -19,7 +19,7 @@ def transitive_closure(g: Graph, n: int) -> list[list[int]]:
     return t[n - 1]
 
 
-def transitive_closure_2(g: Graph, n: int) -> list[list[int]]:
+def transitive_closure_marked(g: Graph, n: int) -> list[list[int]]:
     vertices = sorted(g.V, key=lambda x: x.name)
     t = [[int(i is j or (j, i) in g.E) for i in vertices] for j in vertices]
 

@@ -17,7 +17,7 @@ def floyd_warshall(w: list[list[float]], n: int) -> list[list[float]]:
     return d[n - 1]
 
 
-def floyd_warshall_2(
+def floyd_warshall_marked(
     w: dict[tuple[Vertex, Vertex], float], n: int
 ) -> tuple[list[list[float]], list[list[Vertex | None]]]:
     d = [[0.0 if i == j else float("inf") for i in range(n)] for j in range(n)]
