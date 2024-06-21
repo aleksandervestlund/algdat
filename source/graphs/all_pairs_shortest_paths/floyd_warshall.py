@@ -28,8 +28,7 @@ def floyd_warshall_marked(
         set(itertools.chain.from_iterable(w)), key=lambda x: x.name
     )
 
-    for key, value in w.items():
-        u, v = key
+    for (u, v), value in w.items():
         u_idx = vertices.index(u)
         v_idx = vertices.index(v)
         d[u_idx][v_idx] = value

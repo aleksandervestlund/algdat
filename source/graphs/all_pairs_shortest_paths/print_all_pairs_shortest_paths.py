@@ -9,6 +9,7 @@ def print_all_pairs_shortest_paths(
     if not (isinstance(i.name, int) and isinstance(j.name, int)):
         return
 
+    # It's weird to use the name as index, but it's what the pseudocode does.
     if i is j:
         print(i.name)
     elif pis[i.name - 1][j.name - 1] is None:
