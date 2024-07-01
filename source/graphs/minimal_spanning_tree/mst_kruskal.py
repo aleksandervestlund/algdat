@@ -3,7 +3,7 @@ from source.datastructures.set import find_set, make_set, union
 
 
 def mst_kruskal(
-    g: Graph, w: dict[tuple[Vertex, Vertex], int]
+    g: Graph, w: dict[tuple[Vertex, Vertex], float]
 ) -> set[tuple[Vertex, Vertex]]:
     """O(E * log(V))."""
     a: set[tuple[Vertex, Vertex]] = set()
