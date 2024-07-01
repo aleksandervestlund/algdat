@@ -2,7 +2,7 @@ from source.datastructures.graph import Graph, Status, Vertex
 from source.datastructures.stack import Stack
 
 
-# Should probably use a class to store the global variable...
+# Not a big fan of global variables... May Allah promote me to an air conditioner
 TIME = 0
 
 
@@ -46,7 +46,7 @@ def iterative_dfs_visit(g: Graph, s: Vertex) -> None:
     q.push(s)
 
     while not q.stack_empty():
-        u = q.peek()
+        u: Vertex = q.peek()
 
         if u.color is not Status.UNVISITED:
             u.color = Status.VISITED

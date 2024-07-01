@@ -4,12 +4,6 @@ from dataclasses import dataclass, field
 from enum import Enum
 
 
-class Status(Enum):
-    UNVISITED = "white"
-    VISITING = "gray"
-    VISITED = "black"
-
-
 def topological_sort(g: Graph) -> list[Vertex]:
     """Modifies DFS to find topological order."""
 
@@ -18,7 +12,7 @@ def topological_sort(g: Graph) -> list[Vertex]:
         for v in g.adj[u]:
             if v.color is Status.UNVISITED:
                 dfs_visit(v)
-        topologic.append(u)
+        topologic.insert(0, u)
 
     topologic: list[Vertex] = []
     for u in g.V:
@@ -26,7 +20,13 @@ def topological_sort(g: Graph) -> list[Vertex]:
     for u in g.V:
         if u.color is Status.UNVISITED:
             dfs_visit(u)
-    return list(reversed(topologic))
+    return topologic
+
+
+class Status(Enum):
+    UNVISITED = "white"
+    VISITING = "gray"
+    VISITED = "black"
 
 
 @dataclass(slots=True)
