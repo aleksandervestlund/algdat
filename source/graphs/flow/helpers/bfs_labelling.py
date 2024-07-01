@@ -15,7 +15,7 @@ def bfs_labelling(g: Graph, s: Vertex, t: Vertex) -> bool:
     q.enqueue(s)
 
     while not q.is_empty() and t.f == 0.0:
-        u = q.dequeue()
+        u: Vertex = q.dequeue()
 
         for u, v in g.E:
             if (u, v) in g.E:

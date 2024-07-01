@@ -17,7 +17,7 @@ def _find_path(g: Graph, s: Vertex, t: Vertex) -> list[tuple[Vertex, Vertex]]:
     q.enqueue(s)
     path: list[tuple[Vertex, Vertex]] = []
     while not q.is_empty():
-        u = q.dequeue()
+        u: Vertex = q.dequeue()
         for v in g.adj[u]:
             if v.color is Status.UNVISITED:
                 v.color = Status.VISITING
@@ -37,6 +37,7 @@ def _find_path(g: Graph, s: Vertex, t: Vertex) -> list[tuple[Vertex, Vertex]]:
 def ford_fulkerson(
     g: Graph, s: Vertex, t: Vertex, w: dict[tuple[Vertex, Vertex], float]
 ) -> dict[tuple[Vertex, Vertex], float]:
+    """O(V*E^2)."""
     g_f = Graph()
     g_f.adj = {u: vs.copy() for u, vs in g.adj.items()}
     fs: dict[tuple[Vertex, Vertex], float] = {}

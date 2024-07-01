@@ -1,8 +1,8 @@
 def insertion_sort(a: list[int], n: int) -> None:
-    """Best-case: Θ(n) (sorted).
-    Worst-case: Θ(n^2) (sorted, but reversed).
-    Average-case: Θ(n^2).
-    In general: Ω(n), O(n^2), Θ(?).
+    """BC: Θ(n) (sorted).
+    WC: Θ(n^2) (sorted, but reversed).
+    AC: Θ(n^2).
+    Stable: Yes.
     """
     for i in range(1, n):
         key = a[i]

@@ -5,6 +5,7 @@ from source.datastructures.priority_queue import PriorityQueue
 def mst_prim(
     g: Graph, w: dict[tuple[Vertex, Vertex], float], r: Vertex
 ) -> None:
+    """O(E*log(V))."""
     for u in g.V:
         u.key = float("inf")
         u.pi = None

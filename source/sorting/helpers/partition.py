@@ -5,7 +5,6 @@ from source.sorting.helpers.select import select
 
 
 def partition(a: list[int], p: int, r: int) -> int:
-    """O(n)."""
     x = a[r - 1]
     i = p - 1
 

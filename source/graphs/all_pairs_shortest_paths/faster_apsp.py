@@ -4,6 +4,7 @@ from source.graphs.all_pairs_shortest_paths.extend_shortest_paths import (
 
 
 def faster_apsp(w: list[list[float]], n: int) -> list[list[float]]:
+    """Θ(n^3*log(n))."""
     l = w
     r = 1
 

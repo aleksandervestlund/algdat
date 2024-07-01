@@ -3,12 +3,22 @@ from __future__ import annotations
 from source.datastructures.graph import Vertex
 
 
+#        {0, n ≤ 2
+#        {1, n = 3
+# α(n) = {2, 4 ≤ n ≤ 7
+#        {3, 8 ≤ n ≤ 2047
+#        {4, 2048 ≤ n ≤ 16^512
+# α(n) = O(log*(n))
+
+
 def make_set(x: Vertex) -> None:
+    """O(1)."""
     x.p = x
     x.rank = 0
 
 
 def find_set(x: Vertex | None) -> Vertex | None:
+    """O(log(V))."""
     if x is None:
         return x
 
@@ -19,6 +29,7 @@ def find_set(x: Vertex | None) -> Vertex | None:
 
 
 def union(x: Vertex | None, y: Vertex | None) -> None:
+    """O(log(V))."""
     root_x = find_set(x)
     root_y = find_set(y)
 

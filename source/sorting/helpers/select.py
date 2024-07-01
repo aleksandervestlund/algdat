@@ -7,7 +7,10 @@ from source.sorting.helpers.partition import (
 
 
 def randomized_select(a: list[int], p: int, r: int, i: int) -> int:
-    """O(n)."""
+    """WC: Θ(n^2).
+    AC: Θ(n).
+    BC: Θ(n).
+    """
     if p == r - 1:
         return a[p]
 

@@ -4,6 +4,7 @@ def extend_shortest_paths(
     l_marked: list[list[float]],
     n: int,
 ) -> None:
+    """Θ(n^3)."""
     for i in range(n):
         for j in range(n):
             for k in range(n):

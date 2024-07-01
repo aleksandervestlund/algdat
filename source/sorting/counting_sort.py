@@ -1,4 +1,7 @@
 def counting_sort(a: list[int], n: int, k: int) -> list[int]:
+    """Θ(n+k).
+    Stable: Yes.
+    """
     b: list[int] = []
     c = [0] * k
 

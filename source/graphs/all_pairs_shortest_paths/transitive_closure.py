@@ -2,6 +2,7 @@ from source.datastructures.graph import Graph
 
 
 def transitive_closure(g: Graph, n: int) -> list[list[int]]:
+    """Θ(n^3)."""
     t = [[[0 for _ in range(n)] for _ in range(n)] for _ in range(n)]
     vertices = sorted(g.V, key=lambda x: x.name)
 

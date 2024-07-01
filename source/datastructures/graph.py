@@ -5,7 +5,9 @@ from enum import Enum
 
 
 def topological_sort(g: Graph) -> list[Vertex]:
-    """Modifies DFS to find topological order."""
+    """Modifies DFS to find topological order.
+    Θ(V+E).
+    """
 
     def dfs_visit(u: Vertex) -> None:
         u.color = Status.VISITED
