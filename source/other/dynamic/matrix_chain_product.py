@@ -1,4 +1,4 @@
-def matrix_chain_product(p: list[int], n: int) -> int | list[list[int]]:
+def matrix_chain_product(p: list[int], n: int) -> int:
     m = [[0] * n for _ in range(n)]
 
     for l in range(1, n):

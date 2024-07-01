@@ -1,6 +1,4 @@
-def knapsack(
-    n: int, W: int, w: list[int], v: list[int]
-) -> list[list[int]] | int:
+def knapsack(n: int, W: int, w: list[int], v: list[int]) -> int:
     k = [[0] * (W + 1) for _ in range(n + 1)]
 
     for i in range(n):
