@@ -3,7 +3,7 @@ import itertools
 
 def bucket_sort(a: list[float], n: int) -> list[float]:
     """BC: Θ(n).
- 	AC: Θ(n).
+    AC: Θ(n).
     WC: Θ(n^2).
     Stable: Yes.
     """

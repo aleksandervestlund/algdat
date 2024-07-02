@@ -4,6 +4,7 @@ from source.datastructures.graph import Vertex
 
 
 def floyd_warshall(w: list[list[float]], n: int) -> list[list[float]]:
+    """Θ(n^3)."""
     d = [[[0.0 for _ in range(n)] for _ in range(n)] for _ in range(n)]
     d[0] = w
 

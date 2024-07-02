@@ -6,6 +6,7 @@ from source.graphs.flow.helpers.bfs_labelling import bfs_labelling
 
 
 def edmond_karp(g: Graph, s: Vertex, t: Vertex) -> None:
+    """Implementation of the Ford-Fulkerson method."""
     f: dict[tuple[Vertex, Vertex], float] = {}
 
     for u, v in g.E:
