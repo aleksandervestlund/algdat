@@ -8,9 +8,10 @@ from source.graphs.single_source_shortest_paths.helpers.relax import relax
 def dag_shortest_paths(
     g: Graph, w: dict[tuple[Vertex, Vertex], float], s: Vertex
 ) -> None:
-    """Θ(V+E).
-
+    """Works by considering the vertices in topological order.
     No cycles allowed.
+
+    Runtime: Θ(V+E).
     """
     topologic = topological_sort(g)
     initialize_single_source(g, s)

@@ -1,4 +1,8 @@
 def bisect(a: list[int], p: int, r: int, v: int) -> int | None:
+    """Also known as binary search.
+
+    Runtime: O(lg(n)).
+    """
     if p > r:
         return None
 

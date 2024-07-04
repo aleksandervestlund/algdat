@@ -1,8 +1,15 @@
+from collections.abc import Callable
+from typing import Any
+
 from source.datastructures.graph import Graph, Status, Vertex
 from source.datastructures.queue import Queue
 
 
-def bfs(g: Graph, s: Vertex) -> None:
+def bfs(
+    g: Graph,
+    s: Vertex,
+    priority: Callable[[Vertex], Any] | None = None,  #! Not part of pseudocode
+) -> None:
     """WC: Θ(V + E).
     BC: Θ(V).
     """
@@ -20,7 +27,13 @@ def bfs(g: Graph, s: Vertex) -> None:
     while not q.is_empty():
         u: Vertex = q.dequeue()
 
-        for v in g.adj[u]:
+        #! Not part of the original pseudocode, but useful for exams.
+        vertices = g.adj[u]
+        if priority is not None:
+            vertices = sorted(vertices, key=priority)
+        # Safe and sound.
+
+        for v in vertices:
             if v.color is Status.UNVISITED:
                 v.color = Status.VISITING
                 v.d = u.d + 1

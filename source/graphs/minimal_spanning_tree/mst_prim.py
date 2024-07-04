@@ -5,7 +5,11 @@ from source.datastructures.priority_queue import PriorityQueue
 def mst_prim(
     g: Graph, w: dict[tuple[Vertex, Vertex], float], r: Vertex
 ) -> None:
-    """O(E*log(V))."""
+    """Grows the tree by adding the cheapest edge that connects a vertex
+    in the tree to a vertex outside the tree.
+
+    Runtime: O(E*log(V)).
+    """
     for u in g.V:
         u.key = float("inf")
         u.pi = None

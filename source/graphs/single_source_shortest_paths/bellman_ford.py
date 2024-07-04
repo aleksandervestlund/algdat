@@ -8,7 +8,10 @@ from source.graphs.single_source_shortest_paths.helpers.relax import relax
 def bellman_ford(
     g: Graph, w: dict[tuple[Vertex, Vertex], float], s: Vertex
 ) -> bool:
-    """Θ(V*E)."""
+    """Works by relaxing all edges `|V|-1` times.
+
+    Runtime: Θ(V*E).
+    """
     initialize_single_source(g, s)
 
     for _ in range(len(g.V) - 1):

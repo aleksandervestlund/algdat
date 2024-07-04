@@ -9,9 +9,11 @@ from source.graphs.single_source_shortest_paths.helpers.relax import relax
 def dijkstra(
     g: Graph, w: dict[tuple[Vertex, Vertex], float], s: Vertex
 ) -> None:
-    """O((V+E)*log(V)).
-
+    """Works by considering the vertices in order of their distance from
+    the source vertex.
     No negative weights allowed.
+
+    Runtime: O((V+E)*log(V)).
     """
     initialize_single_source(g, s)
     S = set()
@@ -20,7 +22,7 @@ def dijkstra(
     for u in g.V:
         q.insert(u)
 
-    while q:
+    while q:  # Could be |q| > 1
         u = q.extract_min()
         S.add(u)
 

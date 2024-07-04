@@ -8,6 +8,7 @@ def bucket_sort(a: list[float], n: int) -> list[float]:
     Stable: Yes.
     """
     b: list[list[float]] = [[] for _ in range(n)]
+
     for i in range(n):
         x = a[i]
         b[int(n * x)].append(x)

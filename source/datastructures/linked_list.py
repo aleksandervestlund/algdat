@@ -51,7 +51,8 @@ class LinkedList:
 
         if x.next is not None:
             x.next.prev = x.prev
-        # del x
+
+        del x  # Not part of the original pseudocode.
 
     def __repr__(self) -> str:
         x = self.head
