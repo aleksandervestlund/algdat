@@ -17,7 +17,7 @@ def transitive_closure(g: Graph, n: int) -> list[list[int]]:
                     t[k - 1][i][j] or (t[k - 1][i][k] and t[k - 1][k][j])
                 )
 
-    return t[n - 1]
+    return t[-1]
 
 
 def transitive_closure_marked(g: Graph, n: int) -> list[list[int]]:

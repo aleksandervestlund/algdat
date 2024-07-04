@@ -10,4 +10,4 @@ def matrix_chain_product(p: list[int], n: int) -> int:
                 q = m[i][k] + m[k + 1][j] + p[i] * p[k + 1] * p[j + 1]
                 m[i][j] = min(m[i][j], q)
 
-    return m[0][n - 1]
+    return m[0][-1]

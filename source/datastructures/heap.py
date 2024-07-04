@@ -20,6 +20,8 @@ def parent(i: int) -> int:
 
 @dataclass(slots=True)
 class MaxHeap:
+    """Heaps are balanced; WC = BC."""
+
     heap: list[int] = field(default_factory=list)
     size: int = field(default=0, init=False, repr=False)
 

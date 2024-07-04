@@ -5,17 +5,15 @@ from source.datastructures.graph import Vertex
 
 def floyd_warshall(w: list[list[float]], n: int) -> list[list[float]]:
     """Θ(n^3)."""
-    d = [[[0.0 for _ in range(n)] for _ in range(n)] for _ in range(n)]
+    d = [[[0.0 for _ in range(n)] for _ in range(n)] for _ in range(n + 1)]
     d[0] = w
 
-    for k in range(1, n):
+    for k in range(n):
         for i in range(n):
             for j in range(n):
-                d[k][i][j] = min(
-                    d[k - 1][i][j], d[k - 1][i][k] + d[k - 1][k][j]
-                )
+                d[k + 1][i][j] = min(d[k][i][j], d[k][i][k] + d[k][k][j])
 
-    return d[n - 1]
+    return d[-1]
 
 
 def floyd_warshall_marked(

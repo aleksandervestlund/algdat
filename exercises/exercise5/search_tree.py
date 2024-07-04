@@ -4,11 +4,12 @@ from exercises.exercise5.node import Node
 
 
 def search_tree(root: Node, dna: str) -> int:
-    current_node = root
+    current = root
+
     for sequence in dna:
-        if sequence not in current_node.children:
+        if sequence not in current.children:
             return 0
 
-        current_node = current_node.children[sequence]
+        current = current.children[sequence]
 
-    return current_node.count
+    return current.count

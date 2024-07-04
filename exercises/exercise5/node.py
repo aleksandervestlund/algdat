@@ -6,7 +6,7 @@ from io import StringIO
 
 @dataclass(slots=True)
 class Node:
-    children: dict = field(default_factory=dict)
+    children: dict[str, Node] = field(default_factory=dict)
     count: int = 0
 
     def __str__(self) -> str:
@@ -18,21 +18,18 @@ class Node:
             r += 1
 
             if r == 1:
-                representation.write("┃\n")
+                representation.write("┃")
 
-            if r != 1:
-                representation.write("┃\n")
+            representation.write("\n")
 
             if r != len(self.children):
                 representation.write(f"┣━━━┓ {symbol}\n")
-                representation.write(
-                    "\n┃   " + str(node).replace("\n", "\n┃   ")
-                )
+                representation.write("\n┃   ")
+                representation.write(str(node).replace("\n", "\n┃   "))
             else:
                 representation.write(f"┗━━━┓ {symbol}\n")
-                representation.write(
-                    "\n    " + str(node).replace("\n", "\n    ")
-                )
+                representation.write("\n    ")
+                representation.write(str(node).replace("\n", "\n    "))
 
         return representation.getvalue()
 
@@ -53,10 +50,11 @@ class Node:
             count = 1
 
             while count:
-                if s[ind2] == "{":
-                    count += 1
-                elif s[ind2] == "}":
-                    count -= 1
+                match s[ind2]:
+                    case "{":
+                        count += 1
+                    case "}":
+                        count -= 1
 
                 ind2 += 1
 
