@@ -8,7 +8,7 @@ from source.datastructures.graph import Vertex
 # α(n) = {2, 4 ≤ n ≤ 7
 #        {3, 8 ≤ n ≤ 2047
 #        {4, 2048 ≤ n ≤ 16^512
-# α(n) = O(log*(n))
+# α(n) = O(log(n))
 
 
 def make_set(x: Vertex) -> None:
@@ -38,10 +38,9 @@ def union(x: Vertex | None, y: Vertex | None) -> None:
 
 
 def link(x: Vertex, y: Vertex) -> None:
+    """O(1)."""
     if x.rank > y.rank:
         y.p = x
     else:
         x.p = y
-
-        if x.rank == y.rank:
-            y.rank += 1
+        y.rank += x.rank == y.rank

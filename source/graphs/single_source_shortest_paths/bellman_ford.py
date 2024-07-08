@@ -9,6 +9,7 @@ def bellman_ford(
     g: Graph, w: dict[tuple[Vertex, Vertex], float], s: Vertex
 ) -> bool:
     """Works by relaxing all edges `|V|-1` times.
+    Does not allow negative cycles.
 
     Runtime: Θ(V*E).
     """
