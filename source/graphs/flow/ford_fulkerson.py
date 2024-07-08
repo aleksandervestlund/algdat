@@ -47,6 +47,8 @@ def ford_fulkerson(
     g: Graph, s: Vertex, t: Vertex, w: dict[tuple[Vertex, Vertex], float]
 ) -> dict[tuple[Vertex, Vertex], float]:
     """Uses BFS since Dijkstra would have a worse time complexity.
+    Nodes visited in last iteration are part of the minimal cut.
+
     Runtime: O(V*E^2).
     """
     g_f = Graph()

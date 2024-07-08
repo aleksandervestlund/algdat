@@ -20,9 +20,11 @@ def parent(i: int) -> int:
 
 @dataclass(slots=True)
 class MaxHeap:
-    """Heaps are balanced; WC = BC."""
+    """Heaps are balanced; WC = BC. Not random order, but all children
+    are smaller than their parent.
+    """
 
-    heap: list[int] = field(default_factory=list)
+    heap: list[int] = field(default_factory=list, init=False)
     size: int = field(default=0, init=False, repr=False)
 
     def max_heapify(self, i: int) -> None:
@@ -96,6 +98,8 @@ class MaxHeap:
 
 @dataclass(slots=True)
 class MinHeap:
+    """All children are greater than their parent."""
+
     heap: list[int] = field(default_factory=list)
     size: int = field(default=0, init=False, repr=False)
 

@@ -1,6 +1,6 @@
-def insertion_sort(a: list[int], n: int) -> None:
+def insertion_sort(a: list[float], n: int) -> None:
     """BC: Θ(n) (sorted).
-    WC: Θ(n^2) (sorted, but reversed).
+    WC: Θ(n^2) (sorted in reverse order).
     AC: Θ(n^2).
     Stable: Yes.
     """
