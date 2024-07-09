@@ -10,8 +10,11 @@ def bfs(
     s: Vertex,
     priority: Callable[[Vertex], Any] | None = None,  #! Not part of pseudocode
 ) -> None:
-    """WC: Θ(V + E).
-    BC: Θ(V).
+    """Breadth First Search.
+
+    Runtimes:
+        WC: Θ(V + E).
+        BC: Θ(V).
     """
     for u in g.V - {s}:
         u.color = Status.UNVISITED

@@ -11,6 +11,7 @@ class Arrow(Enum):
 def lcs_length(
     x: str, y: str, m: int, n: int
 ) -> tuple[list[list[int]], list[list[Arrow]]]:
+    """Longest Common Subsequence."""
     b = [[Arrow.EMPTY] * n for _ in range(m)]
     c = [[0] * (n + 1) for _ in range(m + 1)]
 

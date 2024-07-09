@@ -7,7 +7,10 @@ TIME = 0
 
 
 def dfs(g: Graph) -> None:
-    """Θ(V + E)."""
+    """Depth First Search.
+
+    Runtime: Θ(V + E).
+    """
     for u in g.V:
         u.color = Status.UNVISITED
         u.pi = None  # Already None by default...

@@ -84,8 +84,9 @@ class MaxHeap:
         return maximum
 
     def heapsort(self, n: int) -> None:
-        """BC: Θ(n).
-        WC: Θ(n*log(n)).
+        """Runtimes:
+            BC: Θ(n).
+            WC: Θ(n*log(n)).
         Stable: No.
         """
         self.build_max_heap(n)
@@ -160,8 +161,9 @@ class MinHeap:
         return minimum
 
     def heapsort(self, n: int) -> None:
-        """BC: Θ(n).
-        WC: Θ(n*log(n)).
+        """Runtimes:
+            BC: Θ(n).
+            WC: Θ(n*log(n)).
         Stable: No.
         """
         self.build_min_heap(n)

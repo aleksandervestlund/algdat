@@ -21,8 +21,9 @@ def johnson(
             v_idx = vertices.index(v)
             h[v_idx] = min(v.d, h[v_idx])
 
-    for u, v in g.E:
-        w_hat[(u, v)] = w[(u, v)] + h[vertices.index(u)] - h[vertices.index(v)]
+    for edge in g.E:
+        u, v = edge
+        w_hat[edge] = w[edge] + h[vertices.index(u)] - h[vertices.index(v)]
 
     n = len(g.V)
     d = [[float("inf") for _ in range(n)] for _ in range(n)]

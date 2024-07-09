@@ -7,9 +7,12 @@ from source.sorting.helpers.partition import (
 
 
 def randomized_select(a: list[int], p: int, r: int, i: int) -> int:
-    """WC: Θ(n^2).
-    AC: Θ(n).
-    BC: Θ(n).
+    """Find the ith smallest element in the array.
+
+    Runtimes:
+        WC: Θ(n^2).
+        AC: Θ(n).
+        BC: Θ(n).
     """
     if p == r - 1:
         return a[p]
@@ -25,7 +28,10 @@ def randomized_select(a: list[int], p: int, r: int, i: int) -> int:
 
 
 def select(a: list[int], p: int, r: int, i: int) -> int:
-    """O(n)."""
+    """Find the ith smallest element in the array.
+
+    Runtime: O(n).
+    """
     while (r - p + 1) % 5 != 0:
         for j in range(p + 1, r + 1):
             if a[p] > a[j]:

@@ -22,7 +22,7 @@ def dijkstra(
     for u in g.V:
         q.insert(u)
 
-    while q:  # Could be |q| > 1
+    while q:  # Could be len(q) > 1
         u = q.extract_min()
         S.add(u)
 

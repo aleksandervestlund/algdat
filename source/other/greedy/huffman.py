@@ -5,7 +5,11 @@ from source.datastructures.priority_queue import PriorityQueue
 
 
 def huffman(c: dict[Any, float]) -> HuffmanNode:
-    """O(n*log(n))."""
+    """The root node is not counted when calculating the height of the
+    tree.
+
+    Runtime: O(n*log(n)).
+    """
     q = PriorityQueue(key="freq")
 
     for s, f in c.items():

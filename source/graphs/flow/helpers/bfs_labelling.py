@@ -17,14 +17,16 @@ def bfs_labelling(g: Graph, s: Vertex, t: Vertex) -> bool:
     while not q.is_empty() and t.f == 0.0:
         u: Vertex = q.dequeue()
 
-        for u, v in g.E:
-            if (u, v) in g.E:
-                cfs[(u, v)] = cfs.get((u, v), 0.0) - fs[(u, v)]
-            else:
-                cfs[(u, v)] = fs.get((v, u), 0.0)
+        for edge in g.E:
+            u, v = edge
 
-            if v.f == 0.0 and cfs[(u, v)] > 0.0:
-                v.f = min(u.f, cfs[(u, v)])
+            if edge in g.E:
+                cfs[edge] = cfs.get(edge, 0.0) - fs[edge]
+            else:
+                cfs[edge] = fs.get((v, u), 0.0)
+
+            if v.f == 0.0 and cfs[edge] > 0.0:
+                v.f = min(u.f, cfs[edge])
                 v.pi = u
                 q.enqueue(v)
 

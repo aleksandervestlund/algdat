@@ -5,9 +5,9 @@ from source.datastructures.graph import Vertex
 
 def floyd_warshall(w: list[list[float]], n: int) -> list[list[float]]:
     """Works by considering all vertices as intermediate vertices.
-    Transitive closure of a graph.
 
-    Runtime: Θ(n^3)."""
+    Runtime: Θ(n^3).
+    """
     d = [[[0.0 for _ in range(n)] for _ in range(n)] for _ in range(n + 1)]
     d[0] = w
 

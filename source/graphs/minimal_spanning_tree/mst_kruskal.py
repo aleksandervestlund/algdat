@@ -17,9 +17,11 @@ def mst_kruskal(
 
     edges = sorted(g.E, key=lambda x: w[x])  # O(E*log(V))
 
-    for u, v in edges:
+    for edge in edges:
+        u, v = edge
+
         if find_set(u) is not find_set(v):
-            a.add((u, v))
+            a.add(edge)
             union(u, v)
 
     return a

@@ -8,7 +8,7 @@ from source.datastructures.graph import Vertex
 # α(n) = {2, 4 ≤ n ≤ 7
 #        {3, 8 ≤ n ≤ 2047
 #        {4, 2048 ≤ n ≤ 16^512
-# α(n) = O(log(n))
+# => α(n) = O(log(n))
 
 
 def make_set(x: Vertex) -> None:
