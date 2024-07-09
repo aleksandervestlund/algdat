@@ -9,7 +9,7 @@ def faster_apsp(w: list[list[float]], n: int) -> list[list[float]]:
     r = 1
 
     while r < n - 1:
-        m = [[float("inf") for _ in range(n)] for _ in range(n)]
+        m = [[float("inf")] * n for _ in range(n)]
         extend_shortest_paths(l, l, m, n)
         r *= 2
         l = m

@@ -8,7 +8,7 @@ def floyd_warshall(w: list[list[float]], n: int) -> list[list[float]]:
 
     Runtime: Θ(n^3).
     """
-    d = [[[0.0 for _ in range(n)] for _ in range(n)] for _ in range(n + 1)]
+    d = [[[0.0] * n for _ in range(n)] for _ in range(n + 1)]
     d[0] = w
 
     for k in range(n):
@@ -24,9 +24,7 @@ def floyd_warshall_marked(
 ) -> tuple[list[list[float]], list[list[Vertex | None]]]:
     """Θ(n^3)."""
     d = [[0.0 if i == j else float("inf") for i in range(n)] for j in range(n)]
-    pis: list[list[Vertex | None]] = [
-        [None for _ in range(n)] for _ in range(n)
-    ]
+    pis: list[list[Vertex | None]] = [[None] * n for _ in range(n)]
     vertices = sorted(
         set(itertools.chain.from_iterable(w)), key=lambda x: x.name
     )

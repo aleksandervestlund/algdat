@@ -11,7 +11,7 @@ def johnson(
     """O(V^2*log(V)+V*E)."""
     vertices = sorted(g.V, key=lambda v: v.name)
 
-    h = [float("inf") for _ in range(len(vertices))]
+    h = [float("inf")] * len(vertices)
     w_hat: dict[tuple[Vertex, Vertex], float] = {}
 
     for s in vertices:
@@ -26,7 +26,7 @@ def johnson(
         w_hat[edge] = w[edge] + h[vertices.index(u)] - h[vertices.index(v)]
 
     n = len(g.V)
-    d = [[float("inf") for _ in range(n)] for _ in range(n)]
+    d = [[float("inf")] * n for _ in range(n)]
 
     for u in g.V:
         dijkstra(g, w_hat, u)

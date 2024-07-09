@@ -8,7 +8,7 @@ def slow_apsp(
 ) -> list[list[float]]:
     """Θ(n^4)."""
     for _ in range(n - 1):
-        m = [[float("inf") for _ in range(n)] for _ in range(n)]
+        m = [[float("inf")] * n for _ in range(n)]
         extend_shortest_paths(l, w, m, n)
         l = m
 

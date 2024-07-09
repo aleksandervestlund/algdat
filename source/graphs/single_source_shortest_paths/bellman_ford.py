@@ -21,6 +21,7 @@ def bellman_ford(
 
     # for edge in g.E:
     #     u, v = edge
+    #
     #     if v.d > u.d + w[edge]:
     #         return False
     # return True
