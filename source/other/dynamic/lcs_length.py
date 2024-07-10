@@ -11,7 +11,11 @@ class Arrow(Enum):
 def lcs_length(
     x: str, y: str, m: int, n: int
 ) -> tuple[list[list[int]], list[list[Arrow]]]:
-    """Longest Common Subsequence."""
+    """Longest Common Subsequence. The table `c` is filled with the
+    length of the LCS of the prefixes `x_i` and `y_j`. The table `b` is
+    filled with arrows that point to the direction of the optimal
+    subproblem solution.
+    """
     b = [[Arrow.EMPTY] * n for _ in range(m)]
     c = [[0] * (n + 1) for _ in range(m + 1)]
 

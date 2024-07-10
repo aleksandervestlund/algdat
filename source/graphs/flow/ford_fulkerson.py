@@ -2,76 +2,76 @@ from source.datastructures.graph import Graph, Status, Vertex
 from source.datastructures.queue import Queue
 
 
-# TODO: Make work.
-
-
-def _find_path(g: Graph, s: Vertex, t: Vertex) -> list[tuple[Vertex, Vertex]]:
+def find_path(
+    g: Graph, s: Vertex, t: Vertex
+) -> list[tuple[Vertex, Vertex]] | None:
     """Modified BFS."""
-    for u in g.V - {s}:
+    for u in g.V:
         u.color = Status.UNVISITED
-        u.d = float("inf")
         u.pi = None
-
     s.color = Status.VISITING
-    s.d = 0
-    s.pi = None
     q = Queue(len(g.V))
     q.enqueue(s)
-    path: list[tuple[Vertex, Vertex]] = []
-
     while not q.is_empty():
         u: Vertex = q.dequeue()
-
-        for v in g.adj[u]:
-            if v.color is Status.UNVISITED:
-                v.color = Status.VISITING
-                v.d = u.d + 1
-                v.pi = u
-                q.enqueue(v)
-
-                if v is t:
-                    current = t
-
-                    while (prev := current.pi) is not None:
-                        path.insert(0, (prev, current))
-                        current = prev
-
-                    return path
-
+        for v in sorted(g.adj[u], key=lambda x: x.name):
+            if v.color is not Status.UNVISITED:
+                continue
+            v.color = Status.VISITING
+            v.pi = u
+            q.enqueue(v)
+            if v is not t:
+                continue
+            path: list[tuple[Vertex, Vertex]] = []
+            current = t
+            while (prev := current.pi) is not None:
+                path.insert(0, (prev, current))
+                current = prev
+            return path
         u.color = Status.VISITED
-
-    return path
+    return None
 
 
 def ford_fulkerson(
-    g: Graph, s: Vertex, t: Vertex, w: dict[tuple[Vertex, Vertex], float]
+    g: Graph, s: Vertex, t: Vertex, cs: dict[tuple[Vertex, Vertex], float]
 ) -> dict[tuple[Vertex, Vertex], float]:
-    """Uses BFS since Dijkstra would have a worse time complexity.
+    """This implementation uses BFS since Dijkstra would have a worse
+    time complexity. Ford-Fulkerson does not specify which shortest path
+    algorithm to use. Therefore, it does not have guaranteed polynomial
+    time complexity.
     Nodes visited in last iteration are part of the minimal cut.
-
-    Runtime: O(V*E^2).
     """
     g_f = Graph()
-    g_f.adj = {u: vs.copy() for u, vs in g.adj.items()}
+    g_f.adj = {key: value.copy() for key, value in g.adj.items()}
+    cfs = cs.copy()
     fs: dict[tuple[Vertex, Vertex], float] = {}
-    cfs = w.copy()
 
     for u, v in g.E:
         fs[(u, v)] = 0.0
-        fs[(v, u)] = 0.0
-        g_f.adj[v].add(u)
-        if (v, u) not in cfs:
-            cfs[(v, u)] = float("inf")
+        fs[(v, u)] = cfs[(u, v)]
 
-    while p := _find_path(g_f, s, t):
-        cf_p = min(cfs[e] for e in p)
+    while (path := find_path(g_f, s, t)) is not None:
+        cfp = min(cfs[edge] for edge in path)
 
-        for u, v in p:
-            fs[(u, v)] += cf_p
-            fs[(v, u)] -= cf_p
-            cfs[(u, v)] -= cf_p
-            cfs[(v, u)] += cf_p
-            if cfs[(u, v)] == 0.0:
-                g_f.adj[u].remove(v)
+        for edge in path:
+            backward = (edge[1], edge[0])
 
-    return fs
+            if edge in g.E:
+                fs[edge] += cfp
+                cfs[edge] -= cfp
+            else:
+                fs[backward] -= cfp
+                cfs[backward] += cfp
+
+            # Not part of the pseudocode, but necessary to update the graph.
+            for e in (edge, backward):
+                u, v = e
+
+                if e not in g.E:
+                    g_f.adj[u].add(v)
+                    cfs[e] = cfp
+                elif cfs[e] == 0.0:
+                    g_f.adj[u].remove(v)
+                    cfs.pop(e)
+
+    return {edge: fs[edge] for edge in g.E}

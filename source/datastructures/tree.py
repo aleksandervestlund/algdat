@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 
 
 def tree_minimum(x: TreeNode) -> TreeNode:
+    """O(h)."""
     while x.left is not None:
         x = x.left
 
@@ -11,6 +12,7 @@ def tree_minimum(x: TreeNode) -> TreeNode:
 
 
 def tree_successor(x: TreeNode) -> TreeNode | None:
+    """O(h)."""
     if x.right is not None:
         return tree_minimum(x.right)
 
@@ -36,12 +38,14 @@ class Tree:
     root: TreeNode | None = None
 
     def tree_inorder_walk(self, x: TreeNode | None) -> None:
+        """Θ(n)."""
         if x is not None:
             self.tree_inorder_walk(x.left)
             print(x.key)
             self.tree_inorder_walk(x.right)
 
     def tree_search(self, x: TreeNode | None, key: int) -> TreeNode | None:
+        """O(h)."""
         if x is None or x.key == key:
             return x
         if key < x.key:
@@ -49,6 +53,7 @@ class Tree:
         return self.tree_search(x.right, key)
 
     def tree_insert(self, z: TreeNode) -> None:
+        """O(h)."""
         x = self.root
         y = None
 
@@ -66,6 +71,7 @@ class Tree:
             y.right = z
 
     def transplant(self, u: TreeNode, v: TreeNode | None) -> None:
+        """O(1)."""
         if u.parent is None:
             self.root = v
         elif u == u.parent.left:
@@ -77,6 +83,7 @@ class Tree:
             v.parent = u.parent
 
     def tree_delete(self, z: TreeNode) -> None:
+        """O(h)."""
         if z.left is None:
             self.transplant(z, z.right)
         elif z.right is None:

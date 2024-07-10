@@ -2,10 +2,14 @@ from source.datastructures.graph import Graph, Vertex
 from source.datastructures.queue import Queue
 
 
-def bfs_labelling(g: Graph, s: Vertex, t: Vertex) -> bool:
-    cfs: dict[tuple[Vertex, Vertex], float] = {}
-    fs: dict[tuple[Vertex, Vertex], float] = {}
-
+def bfs_labelling(
+    g: Graph,
+    s: Vertex,
+    t: Vertex,
+    fs: dict[tuple[Vertex, Vertex], float],
+    cfs: dict[tuple[Vertex, Vertex], float],
+    cs: dict[tuple[Vertex, Vertex], float],
+) -> bool:
     for u in g.V:
         u.f = 0.0
         u.pi = None
@@ -16,16 +20,18 @@ def bfs_labelling(g: Graph, s: Vertex, t: Vertex) -> bool:
 
     while not q.is_empty() and t.f == 0.0:
         u: Vertex = q.dequeue()
+        edges = {edge for edge in g.E if u in edge}
 
-        for edge in g.E:
-            u, v = edge
+        for edge in edges:
+            v = edge[1]
+            backward = (v, u)
 
             if edge in g.E:
-                cfs[edge] = cfs.get(edge, 0.0) - fs[edge]
+                cfs[edge] = cs[edge] - fs[edge]
             else:
-                cfs[edge] = fs.get((v, u), 0.0)
+                cfs[edge] = fs[backward]
 
-            if v.f == 0.0 and cfs[edge] > 0.0:
+            if cfs[edge] > 0.0 and v.f == 0.0:
                 v.f = min(u.f, cfs[edge])
                 v.pi = u
                 q.enqueue(v)

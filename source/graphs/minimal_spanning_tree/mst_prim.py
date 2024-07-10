@@ -7,6 +7,8 @@ def mst_prim(
 ) -> None:
     """Grows the tree by adding the cheapest edge that connects a vertex
     in the tree to a vertex outside the tree.
+    Better runtime than Kruskal if used on a Fibonacci heap and the
+    graph has many edges.
 
     Runtime: O(E*log(V)).
     """
