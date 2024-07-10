@@ -22,12 +22,12 @@ def edmond_karp(
         v = t
 
         while u is not None:
-            edge = (u, v)
+            forward = (u, v)
             backward = (v, u)
 
-            if edge in g.E:
-                fs[edge] += cfp
-                cfs[edge] -= cfp
+            if forward in g.E:
+                fs[forward] += cfp
+                cfs[forward] -= cfp
             else:
                 fs[backward] -= cfp
                 cfs[backward] += cfp
@@ -35,5 +35,5 @@ def edmond_karp(
             v = u
             u = u.pi
 
-    # Nothing is returned in the pseudocode.
+    #! Nothing is returned in the pseudocode.
     return {edge: fs[edge] for edge in g.E}
