@@ -3,10 +3,6 @@ from enum import Enum
 from source.datastructures.graph import Graph, Status, Vertex
 
 
-# 🪭🌬️
-TIME = 0
-
-
 class Classification(Enum):
     TREE = "tree"
     BACK = "back"
@@ -27,10 +23,10 @@ def edge_classification(
     """
 
     def visit(g: Graph, u: Vertex) -> None:
-        global TIME
-        TIME += 1
+        nonlocal time
+        time += 1
 
-        u.d = TIME
+        u.d = time
         u.color = Status.VISITING
 
         for v in sorted(g.adj[u], key=lambda x: x.name):
@@ -48,17 +44,13 @@ def edge_classification(
                 classifications[edge] = Classification.FORWARD
 
         u.color = Status.VISITED
-        TIME += 1
-        u.f = TIME
+        time += 1
+        u.f = time
 
-    for u in g.V:
-        u.color = Status.UNVISITED
-
-    global TIME
-    TIME = 0
+    time = 0
     classifications: dict[tuple[Vertex, Vertex], Classification] = {}
 
-    for u in g.V:
+    for u in sorted(g.V, key=lambda x: x.name):
         if u.color is Status.UNVISITED:
             visit(g, u)
 

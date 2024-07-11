@@ -46,13 +46,10 @@ class Vertex:
     key: float = field(default=float("inf"))  # Prim
 
     def __hash__(self) -> int:
-        return id(self)
+        return hash(self.name)
 
     def __repr__(self) -> str:
-        return (
-            f"{self.__class__.__name__}(name={self.name}, "
-            f"π={self.pi.name if self.pi is not None else None}, d={self.d})"
-        )
+        return f"{self.__class__.__name__}(name={self.name}, d={self.d}"
 
 
 @dataclass(slots=True, repr=False)
