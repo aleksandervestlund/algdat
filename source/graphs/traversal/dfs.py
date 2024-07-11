@@ -13,7 +13,7 @@ def dfs(g: Graph) -> None:
     """
     for u in g.V:
         u.color = Status.UNVISITED
-        u.pi = None  # Already None by default...
+        u.pi = None
 
     global TIME
     TIME = 0

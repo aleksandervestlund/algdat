@@ -2,6 +2,18 @@
 
 > Nondeterministic Polynomial Time
 
+- A problem $Q$ is NP if a solution can be verified in polynomial time.
+
+- A problem $Q$ is NPH if all problems in NP can be reduced to $Q$ in polynomial time.
+
+> NP-Hard
+
+- A problem $Q$ is NPC if $Q$ is NP and NPH.
+
+> NP-Complete
+
+- NP can be reduced to NPH, which can be reduced to NPC, which can be reduced to each other.
+
 ## Table of Contents
 
 - [Showing that $L \in NPC$](#showing-that)
@@ -19,14 +31,13 @@
 
 - Show that $L \in {\sf NP}$.
   - That an answer can be validated in polynomial time.
-- Choose a known NPC problem $L'$.
-- Show that $L'$ can be reduced to $L$.
+  - co-NP is the same as NP, but the answer is no.
+- Choose a known NPC problem $L^\prime$.
+- Show that $L^\prime$ can be reduced to $L$.
 
 Note that TDT4120 only talks about decision problems.
 
 # NPC problems
-
-> NP-Complete
 
 ### CIRCUIT-SAT
 
@@ -74,10 +85,10 @@ Note that TDT4120 only talks about decision problems.
 
 **Instance**: A complete graph with weights $w \in \mathbb{N}$ and a number $k \in \mathbb{N}$.
 
-**Question**: Does there exist a rountrip with cost $c \le k$?
+**Question**: Does there exist a rountrip with cost $\le k$?
 
 ### SUBSET-SUM
 
-**Instance**: A set og positive integers $S$ and a positive integer $t$.
+**Instance**: A multiset of positive integers $S$ and a positive integer $t$.
 
-**Question**: Does there exist a subset of $S$ with sum $t$?
+**Question**: Does there exist a subset of $S$ with sum equal to $t$?
