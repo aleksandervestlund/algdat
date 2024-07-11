@@ -17,7 +17,7 @@ def ford_fulkerson(
 
     for u, v in g.E:
         fs[(u, v)] = 0.0
-        fs[(v, u)] = cfs[(u, v)]
+        # fs[(v, u)] = cfs[(u, v)]
 
     while (path := find_path(g_f, s, t)) is not None:
         cfp = min(cfs[edge] for edge in path)

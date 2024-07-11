@@ -14,7 +14,7 @@ def edmond_karp(
 
     for u, v in g.E:
         fs[(u, v)] = 0.0
-        fs[(v, u)] = cfs[(u, v)]
+        # fs[(v, u)] = cfs[(u, v)]
 
     while bfs_labelling(g, s, t, fs, cfs, cs):
         cfp = t.f

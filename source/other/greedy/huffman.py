@@ -13,7 +13,8 @@ def huffman(c: dict[Any, float]) -> HuffmanNode:
     q = PriorityQueue(key="freq")
 
     for s, f in c.items():
-        q.insert(HuffmanNode(symbol=s, freq=f))
+        z = HuffmanNode(symbol=s, freq=f)
+        q.insert(z)
 
     while len(q) > 1:
         x: HuffmanNode = q.extract_min()
