@@ -1,13 +1,13 @@
-from enum import Enum
+from enum import StrEnum, auto
 
 from source.datastructures.graph import Graph, Status, Vertex
 
 
-class Classification(Enum):
-    TREE = "tree"
-    BACK = "back"
-    FORWARD = "forward"
-    CROSS = "cross"
+class Classification(StrEnum):
+    TREE = auto()
+    BACK = auto()
+    FORWARD = auto()
+    CROSS = auto()
 
 
 def edge_classification(
@@ -24,7 +24,6 @@ def edge_classification(
 
     def visit(g: Graph, u: Vertex, time: int) -> int:
         time += 1
-
         u.d = time
         u.color = Status.VISITING
 
