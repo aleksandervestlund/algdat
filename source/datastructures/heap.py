@@ -78,7 +78,7 @@ class MaxHeap:
     def max_heap_extract_max(self) -> int:
         """O(log(n))."""
         maximum = self.max_heap_maximum()
-        self.heap[0] = self.heap[self.size - 1]
+        self.heap[0] = self.heap.pop()
         self.size -= 1
         self.max_heapify(0)
         return maximum
