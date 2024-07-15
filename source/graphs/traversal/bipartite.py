@@ -12,11 +12,11 @@ def bipartite(g: Graph) -> bool:
     :raises ValueError: The graph is not undirected.
     :return bool: Whether the graph is bipartite.
     """
-    if any((v, u) not in g.E for u, v in g.E):  # O(E).
+    if any((v, u) not in g.E for u, v in g.E):
         raise ValueError("The graph is not undirected.")
 
-    q = Queue(len(g.adj))
-    s = next(iter(g.adj))  # Need to start somewhere.
+    q = Queue(len(g.V))
+    s = next(u for u in g.adj if u.color is Status.UNVISITED)
     s.color = Status.VISITING
 
     while not q.is_empty():
@@ -26,10 +26,15 @@ def bipartite(g: Graph) -> bool:
         )
 
         for v in g.adj[u]:
+            if v.color is adj_color:
+                continue
             if v.color is u.color:
                 return False
 
             v.color = adj_color
             q.enqueue(v)
 
+    # If the graph is disconnected, we need to check the other components.
+    if any(v.color is Status.UNVISITED for v in g.adj):
+        return bipartite(g)
     return True
