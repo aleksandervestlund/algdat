@@ -8,7 +8,7 @@ from source.graphs.single_source_shortest_paths.dijkstra import dijkstra
 def johnson(
     g: Graph, w: dict[tuple[Vertex, Vertex], float]
 ) -> list[list[float]]:
-    """O(V^2*log(V)+V*E)."""
+    """Runtime: O(V^2*log(V)+V*E)."""
     vertices = sorted(g.V, key=lambda v: v.name)
 
     h = [float("inf")] * len(vertices)

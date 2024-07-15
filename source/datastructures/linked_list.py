@@ -25,7 +25,7 @@ class LinkedList:
     head: LinkedListNode | None = None
 
     def list_search(self, key: int) -> LinkedListNode | None:
-        """O(n)."""
+        """Runtime: O(n)."""
         x = self.head
         while x is not None and x.key != key:
             x = x.next
@@ -33,7 +33,7 @@ class LinkedList:
         return x
 
     def list_prepend(self, x: LinkedListNode) -> None:
-        """O(1)."""
+        """Runtime: O(1)."""
         x.next = self.head
         x.prev = None
 
@@ -43,7 +43,7 @@ class LinkedList:
         self.head = x
 
     def list_delete(self, x: LinkedListNode) -> None:
-        """O(1)."""
+        """Runtime: O(1)."""
         if x.prev is not None:
             x.prev.next = x.next
         else:

@@ -3,8 +3,10 @@ from source.datastructures.queue import Queue
 
 
 def bipartite(g: Graph) -> bool:
-    """Determines if a graph is bipartite, also known as 2-colorable.
-    Not part of curriculum, but useful for exams.
+    """Determines whether a graph is bipartite, also known as
+    2-colorable.
+    No given pseudocode and not part of curriculum, but useful for
+    exams.
 
     Runtime: O(V + E).
 

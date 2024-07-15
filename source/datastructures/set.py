@@ -12,13 +12,13 @@ from source.datastructures.graph import Vertex
 
 
 def make_set(x: Vertex) -> None:
-    """O(1)."""
+    """Runtime: O(1)."""
     x.p = x
     x.rank = 0
 
 
 def find_set(x: Vertex | None) -> Vertex | None:
-    """O(log(V))."""
+    """Runtime: O(log(V))."""
     if x is None:
         return x
 
@@ -29,7 +29,7 @@ def find_set(x: Vertex | None) -> Vertex | None:
 
 
 def union(x: Vertex | None, y: Vertex | None) -> None:
-    """O(log(V))."""
+    """Runtime: O(log(V))."""
     root_x = find_set(x)
     root_y = find_set(y)
 
@@ -38,7 +38,7 @@ def union(x: Vertex | None, y: Vertex | None) -> None:
 
 
 def link(x: Vertex, y: Vertex) -> None:
-    """O(1)."""
+    """Runtime: O(1)."""
     if x.rank > y.rank:
         y.p = x
     else:

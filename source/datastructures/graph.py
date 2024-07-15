@@ -6,7 +6,8 @@ from enum import Enum
 
 def topological_sort(g: Graph) -> list[Vertex]:
     """Modifies DFS to find topological order.
-    Θ(V+E).
+
+    Runtime: Θ(V+E).
     """
 
     def dfs_visit(u: Vertex) -> None:
@@ -35,13 +36,13 @@ class Status(Enum):
 class Vertex:
     name: str | int
     # BFS, DFS, Prim, relax, initialize-single-source
-    pi: Vertex | None = field(default=None)
+    pi: Vertex | None = field(default=None)  # predecessor
     # BFS, DFS, Bellman-Ford, Dijkstra, Johnson, relax, initailize-single-source
-    d: float = field(default=float("-inf"), repr=False)
+    d: float = field(default=float("-inf"), repr=False)  # Discover time
     # BFS, DFS, traverse
     color: Status = field(default=Status.UNVISITED, repr=False)
-    f: float = field(default=float("-inf"), repr=False)  # DFS
-    p: Vertex | None = field(default=None, repr=False)  # set
+    f: float = field(default=float("-inf"), repr=False)  # DFS; finish time
+    p: Vertex | None = field(default=None, repr=False)  # set; parent
     rank: int = field(default=0, repr=False)  # set
     key: float = field(default=float("inf"))  # Prim
 

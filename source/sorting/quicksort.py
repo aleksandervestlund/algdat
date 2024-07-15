@@ -17,7 +17,7 @@ def quicksort(a: list[int], p: int, r: int) -> None:
 
 
 def randomized_quicksort(a: list[int], p: int, r: int) -> None:
-    """Θ(n*log(n)).
+    """Runtime: Θ(n*log(n)).
     Stable: No.
     """
     if p >= r - 1:

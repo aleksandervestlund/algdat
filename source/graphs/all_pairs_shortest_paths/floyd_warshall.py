@@ -22,7 +22,7 @@ def floyd_warshall(w: list[list[float]], n: int) -> list[list[float]]:
 def floyd_warshall_marked(
     w: dict[tuple[Vertex, Vertex], float], n: int
 ) -> tuple[list[list[float]], list[list[Vertex | None]]]:
-    """Θ(n^3)."""
+    """Runtime: Θ(n^3)."""
     d = [[0.0 if i == j else float("inf") for i in range(n)] for j in range(n)]
     pis: list[list[Vertex | None]] = [[None] * n for _ in range(n)]
     vertices = sorted(

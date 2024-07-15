@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 
 
 def tree_minimum(x: TreeNode) -> TreeNode:
-    """O(h)."""
+    """Runtime: O(h)."""
     while x.left is not None:
         x = x.left
 
@@ -12,7 +12,7 @@ def tree_minimum(x: TreeNode) -> TreeNode:
 
 
 def tree_successor(x: TreeNode) -> TreeNode | None:
-    """O(h)."""
+    """Runtime: O(h)."""
     if x.right is not None:
         return tree_minimum(x.right)
 
@@ -38,14 +38,14 @@ class Tree:
     root: TreeNode | None = None
 
     def tree_inorder_walk(self, x: TreeNode | None) -> None:
-        """Θ(n)."""
+        """Runtime: Θ(n)."""
         if x is not None:
             self.tree_inorder_walk(x.left)
             print(x.key)
             self.tree_inorder_walk(x.right)
 
     def tree_search(self, x: TreeNode | None, key: int) -> TreeNode | None:
-        """O(h)."""
+        """Runtime: O(h)."""
         if x is None or x.key == key:
             return x
         if key < x.key:
@@ -53,7 +53,7 @@ class Tree:
         return self.tree_search(x.right, key)
 
     def tree_insert(self, z: TreeNode) -> None:
-        """O(h)."""
+        """Runtime: O(h)."""
         x = self.root
         y = None
 
@@ -71,10 +71,10 @@ class Tree:
             y.right = z
 
     def transplant(self, u: TreeNode, v: TreeNode | None) -> None:
-        """O(1)."""
+        """Runtime: O(1)."""
         if u.parent is None:
             self.root = v
-        elif u == u.parent.left:
+        elif u is u.parent.left:
             u.parent.left = v
         else:
             u.parent.right = v
@@ -83,13 +83,13 @@ class Tree:
             v.parent = u.parent
 
     def tree_delete(self, z: TreeNode) -> None:
-        """O(h)."""
+        """Runtime: O(h)."""
         if z.left is None:
             self.transplant(z, z.right)
         elif z.right is None:
             self.transplant(z, z.left)
         else:
-            if (y := tree_minimum(z.right)) != z.parent:
+            if (y := tree_minimum(z.right)) is not z.parent:
                 self.transplant(y, y.right)
                 y.right = z.right
                 y.right.parent = y

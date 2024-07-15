@@ -4,17 +4,17 @@ from source.datastructures.helpers.underflow import UnderflowError
 
 
 def left(i: int) -> int:
-    """O(1)."""
+    """Runtime: O(1)."""
     return 2 * i + 1
 
 
 def right(i: int) -> int:
-    """O(1)."""
+    """Runtime: O(1)."""
     return 2 * i + 2
 
 
 def parent(i: int) -> int:
-    """O(1)."""
+    """Runtime: O(1)."""
     return (i - 1) // 2
 
 
@@ -28,7 +28,7 @@ class MaxHeap:
     size: int = field(default=0, init=False, repr=False)
 
     def max_heapify(self, i: int) -> None:
-        """O(log(n))."""
+        """Runtime: O(log(n))."""
         l = left(i)
         r = right(i)
         m = l if l < self.size and self.heap[l] > self.heap[i] else i
@@ -41,12 +41,12 @@ class MaxHeap:
             self.max_heapify(m)
 
     def build_max_heap(self, n: int) -> None:
-        """Θ(n)."""
+        """Runtime: Θ(n)."""
         for i in range(n // 2, -1, -1):
             self.max_heapify(i)
 
     def max_heap_increase_key(self, x: int, k: int) -> None:
-        """O(log(n))."""
+        """Runtime: O(log(n))."""
         if k < x:
             raise ValueError()
 
@@ -58,7 +58,7 @@ class MaxHeap:
             i = j
 
     def max_heap_insert(self, key: int, n: int) -> None:
-        """O(log(n))."""
+        """Runtime: O(log(n))."""
         if self.size == n:
             raise OverflowError()
 
@@ -69,14 +69,14 @@ class MaxHeap:
         self.max_heap_increase_key(key, k)
 
     def max_heap_maximum(self) -> int:
-        """Θ(1)."""
+        """Runtime: Θ(1)."""
         if not self.size:
             raise UnderflowError()
 
         return self.heap[0]
 
     def max_heap_extract_max(self) -> int:
-        """O(log(n))."""
+        """Runtime: O(log(n))."""
         maximum = self.max_heap_maximum()
         self.heap[0] = self.heap.pop()
         self.size -= 1
@@ -105,7 +105,7 @@ class MinHeap:
     size: int = field(default=0, init=False, repr=False)
 
     def min_heapify(self, i: int) -> None:
-        """O(log(n))."""
+        """Runtime: O(log(n))."""
         l = left(i)
         r = right(i)
         m = l if l < self.size and self.heap[l] < self.heap[i] else i
@@ -118,12 +118,12 @@ class MinHeap:
             self.min_heapify(m)
 
     def build_min_heap(self, n: int) -> None:
-        """Θ(n)."""
+        """Runtime: Θ(n)."""
         for i in range(n // 2, -1, -1):
             self.min_heapify(i)
 
     def min_heap_decrease_key(self, x: int, k: int) -> None:
-        """O(log(n))."""
+        """Runtime: O(log(n))."""
         if k > x:
             raise ValueError()
 
@@ -135,7 +135,7 @@ class MinHeap:
             i = j
 
     def min_heap_insert(self, key: int, n: int) -> None:
-        """O(log(n))."""
+        """Runtime: O(log(n))."""
         if self.size == n:
             raise OverflowError()
 
@@ -146,14 +146,14 @@ class MinHeap:
         self.min_heap_decrease_key(key, k)
 
     def min_heap_minimum(self) -> int:
-        """Θ(1)."""
+        """Runtime: Θ(1)."""
         if not self.size:
             raise UnderflowError()
 
         return self.heap[0]
 
     def min_heap_extract_min(self) -> int:
-        """O(log(n))."""
+        """Runtime: O(log(n))."""
         minimum = self.min_heap_minimum()
         self.heap[0] = self.heap[self.size - 1]
         self.size -= 1
