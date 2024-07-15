@@ -3,21 +3,18 @@ from source.datastructures.queue import Queue
 
 
 def ford_fulkerson(
-    g: Graph, s: Vertex, t: Vertex, cfs: dict[tuple[Vertex, Vertex], float]
-) -> dict[tuple[Vertex, Vertex], float]:
-    """This implementation uses BFS since Dijkstra would have a worse
-    time complexity. Ford-Fulkerson does not specify which shortest path
-    algorithm to use. Therefore, it does not have guaranteed polynomial
-    time complexity.
+    g: Graph, s: Vertex, t: Vertex, cfs: dict[tuple[Vertex, Vertex], int]
+) -> dict[tuple[Vertex, Vertex], int]:
+    """Ford-Fulkerson does not specify which shortest path algorithm to
+    use. This implementation uses BFS since Dijkstra would have a worse
+    time complexity. Therefore, it does not have guaranteed polynomial
+    time complexity. If the weights are real numbers, the algorithm may
+    never terminate.
     Nodes visited in last iteration are part of the minimal cut.
     """
     g_f = Graph()
     g_f.adj = {u: adjacencies.copy() for u, adjacencies in g.adj.items()}
-    fs: dict[tuple[Vertex, Vertex], float] = {}
-
-    for u, v in g.E:
-        fs[(u, v)] = 0.0
-        # fs[(v, u)] = cfs[(u, v)]
+    fs = {edge: 0 for edge in g.E}
 
     while (path := find_path(g_f, s, t)) is not None:
         cfp = min(cfs[edge] for edge in path)
@@ -29,7 +26,6 @@ def ford_fulkerson(
                 fs[forward] += cfp
                 cfs[forward] -= cfp
             else:
-                fs[backward] -= cfp
                 cfs[backward] += cfp
 
             #! Not part of the pseudocode, but necessary to update the graph.
@@ -40,10 +36,10 @@ def ford_fulkerson(
                     g_f.adj[u].add(v)
                     cfs[edge] = cfp
                 elif cfs[edge] == 0.0:
-                    g_f.adj[u].remove(v)
+                    g_f.adj[u].discard(v)
                     cfs.pop(edge)
 
-    return {edge: fs[edge] for edge in g.E}
+    return fs
 
 
 def find_path(

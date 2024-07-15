@@ -5,6 +5,7 @@ from source.datastructures.graph import Vertex
 
 def floyd_warshall(w: list[list[float]], n: int) -> list[list[float]]:
     """Works by considering all vertices as intermediate vertices.
+    No negative cycles are allowed.
 
     Runtime: Θ(n^3).
     """

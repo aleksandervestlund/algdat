@@ -10,7 +10,10 @@ def dijkstra(
     g: Graph, w: dict[tuple[Vertex, Vertex], float], s: Vertex
 ) -> None:
     """Works by considering the vertices in order of their distance from
-    the source vertex. Dynamic and greedy algorithm.
+    the source vertex.
+    Dynamic and greedy algorithm.
+    Should use an unordered list instead of a priority queue if
+    |E| > V^2/log(V).
     No negative weights allowed.
 
     Runtime: O((V+E)*log(V)).

@@ -3,21 +3,17 @@ from source.graphs.flow.helpers.bfs_labelling import bfs_labelling
 
 
 def edmond_karp(
-    g: Graph, s: Vertex, t: Vertex, cs: dict[tuple[Vertex, Vertex], float]
-) -> dict[tuple[Vertex, Vertex], float]:
+    g: Graph, s: Vertex, t: Vertex, cs: dict[tuple[Vertex, Vertex], int]
+) -> dict[tuple[Vertex, Vertex], int]:
     """Implementation of the Ford-Fulkerson method.
 
     Runtime: O(V*E^2).
     """
     cfs = cs.copy()
-    fs: dict[tuple[Vertex, Vertex], float] = {}
-
-    for u, v in g.E:
-        fs[(u, v)] = 0.0
-        # fs[(v, u)] = cfs[(u, v)]
+    fs = {edge: 0 for edge in g.E}
 
     while bfs_labelling(g, s, t, fs, cfs, cs):
-        cfp = t.f
+        cfp: int = t.f  # type: ignore
         u = t.pi
         v = t
 
@@ -29,11 +25,9 @@ def edmond_karp(
                 fs[forward] += cfp
                 cfs[forward] -= cfp
             else:
-                fs[backward] -= cfp
                 cfs[backward] += cfp
 
             v = u
             u = u.pi
 
-    #! Nothing is returned in the pseudocode.
-    return {edge: fs[edge] for edge in g.E}
+    return fs

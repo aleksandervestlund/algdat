@@ -5,10 +5,9 @@ from source.datastructures.queue import Queue
 def bipartite(g: Graph) -> bool:
     """Determines whether a graph is bipartite, also known as
     2-colorable.
-    No given pseudocode and not part of curriculum, but useful for
-    exams.
+    No given pseudocode and not part of curriculum, but common on exams.
 
-    Runtime: O(V + E).
+    Runtime: O(V+E).
 
     :param Graph g: The graph.
     :raises ValueError: The graph is not undirected.
@@ -18,7 +17,7 @@ def bipartite(g: Graph) -> bool:
         raise ValueError("The graph is not undirected.")
 
     q = Queue(len(g.V))
-    s = next(u for u in g.adj if u.color is Status.UNVISITED)
+    s = next(u for u in g.V if u.color is Status.UNVISITED)
     s.color = Status.VISITING
 
     while not q.is_empty():

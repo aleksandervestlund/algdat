@@ -1,5 +1,6 @@
 def knapsack(n: int, W: int, w: list[int], v: list[int]) -> int:
-    """NP-complete problem.
+    """NP-complete problem. Also known as 0-1, or binary, knapsack
+    problem.
 
     Runtime: Θ(n*W)=Θ(n*2^m).
     """

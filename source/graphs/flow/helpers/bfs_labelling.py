@@ -6,19 +6,19 @@ def bfs_labelling(
     g: Graph,
     s: Vertex,
     t: Vertex,
-    fs: dict[tuple[Vertex, Vertex], float],
-    cfs: dict[tuple[Vertex, Vertex], float],
-    cs: dict[tuple[Vertex, Vertex], float],
+    fs: dict[tuple[Vertex, Vertex], int],
+    cfs: dict[tuple[Vertex, Vertex], int],
+    cs: dict[tuple[Vertex, Vertex], int],
 ) -> bool:
     for u in g.V:
-        u.f = 0.0
+        u.f = 0
         u.pi = None
 
     s.f = float("inf")
-    q = Queue(size=len(g.V))
+    q = Queue(len(g.V))
     q.enqueue(s)
 
-    while not q.is_empty() and t.f == 0.0:
+    while not q.is_empty() and t.f == 0:
         u: Vertex = q.dequeue()
         edges = {edge for edge in g.E if u in edge}
 
@@ -31,9 +31,9 @@ def bfs_labelling(
             else:
                 cfs[edge] = fs[backward]
 
-            if cfs[edge] > 0.0 and v.f == 0.0:
+            if cfs[edge] > 0 and v.f == 0:
                 v.f = min(u.f, cfs[edge])
                 v.pi = u
                 q.enqueue(v)
 
-    return t.f != 0.0
+    return t.f != 0

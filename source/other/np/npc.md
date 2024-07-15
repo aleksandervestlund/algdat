@@ -1,23 +1,21 @@
-# NP
+# ${\sf NP}$
 
-> Nondeterministic Polynomial Time
+> NP: Nondeterministic Polynomial Time
 
-- A problem $Q$ is NP if a solution can be verified in polynomial time.
+- A problem $Q$ is ${\sf NP}$ if a solution can be verified in polynomial time.
 
-- A problem $Q$ is NPH if all problems in NP can be reduced to $Q$ in polynomial time.
+- A problem $Q$ is ${\sf NPH}$ if all problems in ${\sf NP}$ can be reduced to $Q$ in polynomial time.
 
-> NP-Hard
+> NPH: NP-Hard
 
-- A problem $Q$ is NPC if $Q$ is NP and NPH.
+- A problem $Q$ is ${\sf NPC}$ if $Q$ is ${\sf NP}$ and ${\sf NPH}$.
 
-> NP-Complete
-
-- NP can be reduced to NPH, which can be reduced to NPC, which can be reduced to each other.
+> NPC: NP-Complete
 
 ## Table of Contents
 
-- [Showing that $L \in NPC$](#showing-that)
-- [NPC problems](#npc-problems)
+- [Showing that $L \in {\sf NPC}$](#showing-that)
+- [${\sf NPC}$ problems](#npc-problems)
   - [CIRCUIT-SAT](#circuit-sat)
   - [SAT](#sat)
   - [3-CNF-SAT](#3-cnf-sat)
@@ -31,13 +29,13 @@
 
 - Show that $L \in {\sf NP}$.
   - That an answer can be validated in polynomial time.
-  - co-NP is the same as NP, but the answer is no.
-- Choose a known NPC problem $L^\prime$.
+  - co-${\sf NP}$ is the same as ${\sf NP}$, but the answer is no.
+- Choose a known ${\sf NPC}$ problem $L^\prime$.
 - Show that $L^\prime$ can be reduced to $L$.
 
-Note that TDT4120 only talks about decision problems.
+Note that TDT4120 only discusses decision problems.
 
-# NPC problems
+# ${\sf NPC}$ problems
 
 ### CIRCUIT-SAT
 
@@ -53,7 +51,7 @@ Note that TDT4120 only talks about decision problems.
 
 ### 3-CNF-SAT
 
-> Conjunctive Normal Form
+> CNF: Conjunctive Normal Form
 
 **Instance**: A logical formula in 3-CNF-form.
 
@@ -73,7 +71,7 @@ Note that TDT4120 only talks about decision problems.
 
 ### HAM-CYCLE
 
-> Hamilton-cycle
+> HAM: Hamilton
 
 **Instance**: An undirected graph $G$.
 
@@ -81,7 +79,7 @@ Note that TDT4120 only talks about decision problems.
 
 ### TSP
 
-> Travelling Salesman Problem
+> TSP: Travelling Salesman Problem
 
 **Instance**: A complete graph with weights $w \in \mathbb{N}$ and a number $k \in \mathbb{N}$.
 
