@@ -12,4 +12,5 @@ def verify_short_path(
     # for i in range(0, n - 1):
     #     if (p[i], p[i + 1]) not in g.E:
     #         return False
+    #
     # return True

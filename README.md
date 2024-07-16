@@ -1,15 +1,14 @@
 # TDT4120 - Algorithms and Data Structures
 
-> Written by: _Aleksander Thornes Vestlund_.
-
 ## Table of Contents
 
 - [Getting Started](#getting-started)
+- [Course Information](#course-information)
 - [Structure](#structure)
 
 ## Getting Started
 
-- Make sure you are using Pytohn $\ge {\sf 3.10}$.
+- Make sure you are using Python $\ge {\sf 3.10}$.
 - Download contents of the `requirements.txt` file,
   either in a virtual environment or locally.
 
@@ -49,7 +48,21 @@
 
 > **Note:** Currently, there are no requirements for the project.
 
-### Structure
+## Course Information
+
+- **University:** Norwegian University of Science and Technology (NTNU).
+- **Location:** Trondheim, Norway.
+- **Faculty:** Faculty of Information Technology and Electrical Engineering (IE).
+- **Department:** Department of Computer Science (IDI).
+- **Study level:** [Intermediate course, level $\rm II$](https://arc.net/l/quote/dqkzncfi).
+- **Semester:** Autumn 2023.
+- **Instructor:** Magnus Lie Hetland.
+- **Language of instruction:** Norwegian.
+- **Book:** Cormen, Leiserson, Rivest, Stein: Introduction to Algorithms, fourth edition.
+
+> **Note:** The course is subject to change. All algorithms are based on source code from the book.
+
+## Structure
 
 ```bash
 ├── exercises
