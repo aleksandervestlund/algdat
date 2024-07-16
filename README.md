@@ -34,7 +34,7 @@
     deactivate
     ```
 
-- Would recommend creating a `main.py` file in the root directory,
+- Would recommend creating a `main.py`-file in the root directory,
   to be able to run the algorithms.
 
   ```bash
@@ -54,13 +54,13 @@
 - **Location:** Trondheim, Norway.
 - **Faculty:** Faculty of Information Technology and Electrical Engineering (IE).
 - **Department:** Department of Computer Science (IDI).
-- **Study level:** [Intermediate course, level $\rm II$](https://arc.net/l/quote/dqkzncfi).
+- **Study level:** Intermediate course, level $\sf II$.
 - **Semester:** Autumn 2023.
 - **Instructor:** Magnus Lie Hetland.
 - **Language of instruction:** Norwegian.
 - **Book:** Cormen, Leiserson, Rivest, Stein: Introduction to Algorithms, fourth edition.
 
-> **Note:** The course is subject to change. All algorithms are based on source code from the book.
+> **Note:** The course is subject to change. All algorithms are based on source code from the book. Master's level courses are called "Second degree level".
 
 ## Structure
 

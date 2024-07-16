@@ -1,3 +1,6 @@
+from __future__ import annotations
+
+import math
 from dataclasses import dataclass, field
 
 from source.datastructures.helpers.underflow import UnderflowError
@@ -18,6 +21,33 @@ def parent(i: int) -> int:
     return (i - 1) // 2
 
 
+def print_heap(heap: MaxHeap | MinHeap) -> None:
+    """Not part of curriculum, but useful for exams. Assumes there are
+    no values smaller than -9 or greater than 99.
+
+    Runtime: O(n).
+    """
+    height = int(math.log2(heap.size)) + 1  # Did not want a numpy dependency..
+    left_space = 2**height - 2
+    middle_space = 0
+    idx = 0
+
+    for level in range(height):
+        print(left_space * " ", end="")
+
+        for _ in range(2**level):
+            if idx == heap.size:
+                break
+
+            print(f"{heap.heap[idx]:02d}{' ' * middle_space}", end="")
+            idx += 1
+
+        middle_space = left_space
+        left_space -= 2 ** (height - level - 1)
+        print()
+
+
+# Could have used a Heap superclass, but wanted to follow the book.
 @dataclass(slots=True)
 class MaxHeap:
     """Heaps are balanced; WC = BC. Not random order, but all children
