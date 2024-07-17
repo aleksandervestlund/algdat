@@ -9,7 +9,7 @@
 ## Getting Started
 
 - Make sure you are using Python $\ge {\sf 3.10}$.
-- Download contents of the `requirements.txt` file,
+- Download contents of the `requirements.txt`-file,
   either in a virtual environment or locally.
 
   ```bash
@@ -192,4 +192,4 @@
 > The structure is subject to change.
 > The `exercises` directory is no longer part of the git repository.
 > The `tests` directory is empty.
-> The `bipartite.py` file is not part of the curriculum.
+> The `bipartite.py`-file and the `print_heap`-function in `heap.py`-file are not part of the curriculum.

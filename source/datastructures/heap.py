@@ -27,24 +27,26 @@ def print_heap(heap: MaxHeap | MinHeap) -> None:
 
     Runtime: O(n).
     """
-    height = int(math.log2(heap.size)) + 1  # Did not want a numpy dependency..
+    height = int(math.log2(heap.size)) + 1  # Didn't want a numpy dependency...
     left_space = 2**height - 2
     middle_space = 0
     idx = 0
 
     for level in range(height):
-        print(left_space * " ", end="")
+        print(" " * left_space, end="")
 
         for _ in range(2**level):
             if idx == heap.size:
                 break
 
-            print(f"{heap.heap[idx]:02d}{' ' * middle_space}", end="")
+            print(f"{heap.heap[idx]:>2}{' ' * middle_space}", end="")
             idx += 1
 
         middle_space = left_space
         left_space -= 2 ** (height - level - 1)
         print()
+
+    print()
 
 
 # Could have used a Heap superclass, but wanted to follow the book.

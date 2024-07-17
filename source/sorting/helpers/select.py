@@ -41,12 +41,13 @@ def select(a: list[int], p: int, r: int, i: int) -> int:
             return a[p]
 
         p += 1
-        i += 1
+        i -= 1
 
-    g = (r - p) // 5
+    g = (r - p + 1) // 5
 
     for j in range(p, p + g):
-        a[j : j + 5 * g : g] = sorted(a[j : j + 5 * g : g])
+        indeces = slice(j, j + 5 * g, g)
+        a[indeces] = sorted(a[indeces])
 
     x = select(a, p + 2 * g, p + 3 * g - 1, ceil(g / 2))
     q = partition_around(a, p, r, x)
