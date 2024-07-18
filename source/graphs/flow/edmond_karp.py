@@ -25,6 +25,7 @@ def edmond_karp(
                 fs[forward] += cfp
                 cfs[forward] -= cfp
             else:
+                fs[backward] -= cfp
                 cfs[backward] += cfp
 
             v = u

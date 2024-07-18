@@ -13,9 +13,7 @@ def bipartite(g: Graph) -> bool:
     :raises ValueError: The graph is not undirected.
     :return bool: Whether the graph is bipartite.
     """
-    if any((v, u) not in g.E for u, v in g.E):
-        raise ValueError("The graph is not undirected.")
-
+    _validate_undirected(g)
     q = Queue(len(g.V))
     s = next(u for u in g.V if u.color is Status.UNVISITED)
     s.color = Status.VISITING
@@ -39,3 +37,8 @@ def bipartite(g: Graph) -> bool:
     if any(v.color is Status.UNVISITED for v in g.adj):
         return bipartite(g)
     return True
+
+
+def _validate_undirected(g: Graph) -> None:
+    if any((v, u) not in g.E for u, v in g.E):
+        raise ValueError("The graph is not undirected.")

@@ -7,8 +7,14 @@ from source.datastructures.helpers.underflow import UnderflowError
 @dataclass(slots=True)
 class Stack:
     size: int = field(repr=False)
-    stack: list[Any] = field(default_factory=list)
+    stack: list[Any] = field(init=False)
     top: int = field(default=-1, init=False, repr=False)
+
+    def __post_init__(self) -> None:
+        if self.size < 1:
+            raise ValueError()
+
+        self.stack = [None] * self.size
 
     def peek(self) -> Any:
         """Runtime: O(1)."""
@@ -19,11 +25,11 @@ class Stack:
 
     def push(self, x: Any) -> None:
         """Runtime: O(1)."""
-        if self.top == self.size:
+        if self.top == self.size - 1:
             raise OverflowError()
 
         self.top += 1
-        self.stack.append(x)
+        self.stack[self.top] = x
 
     def pop(self) -> Any:
         """Runtime: O(1)."""

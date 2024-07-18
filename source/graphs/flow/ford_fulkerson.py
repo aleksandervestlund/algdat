@@ -26,6 +26,7 @@ def ford_fulkerson(
                 fs[forward] += cfp
                 cfs[forward] -= cfp
             else:
+                fs[backward] -= cfp
                 cfs[backward] += cfp
 
             #! Not part of the pseudocode, but necessary to update the graph.

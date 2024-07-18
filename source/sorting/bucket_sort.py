@@ -13,9 +13,7 @@ def bucket_sort(a: list[float], n: int) -> list[float]:
         WC: Θ(n^2) (all elements in the same bucket).
     Stable: Yes.
     """
-    #! Not part of pseudocode.
-    if any(not (0 <= x < 1) for x in a):
-        raise ValueError("Elements should be in the range [0, 1).")
+    _validate_range(a)  #! Not part of pseudocode.
 
     b: list[list[float]] = [[] for _ in range(n)]
 
@@ -27,3 +25,8 @@ def bucket_sort(a: list[float], n: int) -> list[float]:
         insertion_sort(b[i], len(b[i]))
 
     return list(itertools.chain.from_iterable(b))
+
+
+def _validate_range(a: list[float]) -> None:
+    if not all(0.0 <= x < 1.0 for x in a):
+        raise ValueError("Elements should be in the range [0, 1).")

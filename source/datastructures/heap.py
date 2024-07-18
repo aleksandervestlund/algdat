@@ -23,7 +23,7 @@ def parent(i: int) -> int:
 
 def print_heap(heap: MaxHeap | MinHeap) -> None:
     """Not part of curriculum, but useful for exams. Assumes there are
-    no values smaller than -9 or greater than 99.
+    no values smaller than -9 or greater than 99 (to look pretty💅).
 
     Runtime: O(n).
     """
@@ -46,13 +46,11 @@ def print_heap(heap: MaxHeap | MinHeap) -> None:
         left_space -= 2 ** (height - level - 1)
         print()
 
-    print()
-
 
 # Could have used a Heap superclass, but wanted to follow the book.
 @dataclass(slots=True)
 class MaxHeap:
-    """Heaps are balanced; WC = BC. Not random order, but all children
+    """Heaps are balanced; WC = BC. Not random order, since all children
     are smaller than their parent.
     """
 
@@ -187,7 +185,7 @@ class MinHeap:
     def min_heap_extract_min(self) -> int:
         """Runtime: O(log(n))."""
         minimum = self.min_heap_minimum()
-        self.heap[0] = self.heap[self.size - 1]
+        self.heap[0] = self.heap.pop()
         self.size -= 1
         self.min_heapify(0)
         return minimum

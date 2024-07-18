@@ -2,7 +2,9 @@ from source.sorting.helpers.partition import partition, randomized_partition
 
 
 def quicksort(a: list[int], p: int, r: int) -> None:
-    """Runtimes:
+    """Divide and conquer.
+
+    Runtimes:
         BC: Θ(n*log(n)).
         AC: Θ(n*log(n)).
         WC: Θ(n^2) (sorted in reverse order).
@@ -17,7 +19,9 @@ def quicksort(a: list[int], p: int, r: int) -> None:
 
 
 def randomized_quicksort(a: list[int], p: int, r: int) -> None:
-    """Runtime: Θ(n*log(n)).
+    """Divide and conquer.
+
+    Runtime: Θ(n*log(n)).
     Stable: No.
     """
     if p >= r - 1:
