@@ -60,7 +60,9 @@
 - **Language of instruction:** Norwegian.
 - **Book:** Cormen, Leiserson, Rivest, Stein: Introduction to Algorithms, fourth edition.
 
-> **Note:** The course is subject to change. All algorithms are based on source code from the book. Master's level courses are called "Second degree level".
+> **Note:** The course is subject to change.
+> All algorithms are based on source code from the book.
+> Master's level courses are called "Second degree level".
 
 ## Structure
 
@@ -192,4 +194,4 @@
 > The structure is subject to change.
 > The `exercises` directory is no longer part of the git repository.
 > The `tests` directory is empty.
-> The `bipartite.py`-file and the `print_heap`-function in `heap.py`-file are not part of the curriculum.
+> The `bipartite.py`-file, the `print_heap`-function in `heap.py`-file, and the `height`, `tree_preorder_walk` and `tree_postorder_walk`-methods in the `tree.py`-file are not part of the curriculum.

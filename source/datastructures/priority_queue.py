@@ -26,7 +26,10 @@ class PriorityQueue:
 
     def decrease_key(self, item: Any, value: float) -> None:
         """Runtime: O(log(V))."""
-        if self.key is not None:
+        if self.key is None:
+            if value > item:
+                raise ValueError()
+        else:
             if value > getattr(item, self.key):
                 raise ValueError()
 
@@ -37,7 +40,10 @@ class PriorityQueue:
 
     def increase_key(self, item: Any, value: float) -> None:
         """Runtime: O(log(V))."""
-        if self.key is not None:
+        if self.key is None:
+            if value < item:
+                raise ValueError()
+        else:
             if value < getattr(item, self.key):
                 raise ValueError()
 

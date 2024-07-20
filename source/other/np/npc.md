@@ -14,8 +14,8 @@
 
 ## Table of Contents
 
-- [Showing that $L \in {\sf NPC}$](#showing-that)
-- [${\sf NPC}$ problems](#npc-problems)
+- [Showing that L is in NPC](#showing-that)
+- [NPC problems](#npc-problems)
   - [CIRCUIT-SAT](#circuit-sat)
   - [SAT](#sat)
   - [3-CNF-SAT](#3-cnf-sat)
@@ -29,7 +29,7 @@
 
 - Show that $L \in {\sf NP}$.
   - That an answer can be validated in polynomial time.
-  - co-${\sf NP}$ is the same as ${\sf NP}$, but the answer is no.
+  - co - ${\sf NP}$ is the same as ${\sf NP}$, but the answer is no.
 - Choose a known ${\sf NPC}$ problem $L^\prime$.
 - Show that $L^\prime$ can be reduced to $L$.
 

@@ -44,6 +44,26 @@ class Tree:
             print(x.key)
             self.tree_inorder_walk(x.right)
 
+    def tree_preorder_walk(self, x: TreeNode | None) -> None:
+        """Not part of curriculum.
+
+        Runtime: Θ(n).
+        """
+        if x is not None:
+            print(x.key)
+            self.tree_preorder_walk(x.left)
+            self.tree_preorder_walk(x.right)
+
+    def tree_postorder_walk(self, x: TreeNode | None) -> None:
+        """Not part of curriculum.
+
+        Runtime: Θ(n).
+        """
+        if x is not None:
+            self.tree_postorder_walk(x.left)
+            self.tree_postorder_walk(x.right)
+            print(x.key)
+
     def tree_search(self, x: TreeNode | None, key: int) -> TreeNode | None:
         """Runtime: O(h)."""
         if x is None or x.key == key:
@@ -97,3 +117,16 @@ class Tree:
             self.transplant(z, y)
             y.left = z.left
             y.left.parent = y
+
+    def height(self) -> int:
+        """Not part of curriculum and no given pseudocode.
+
+        Runtime: O(n).
+        """
+
+        def _height(node: TreeNode | None) -> int:
+            if node is None:
+                return 0
+            return 1 + max(_height(node.left), _height(node.right))
+
+        return _height(self.root)

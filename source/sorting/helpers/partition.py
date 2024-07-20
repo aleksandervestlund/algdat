@@ -42,7 +42,8 @@ def good_partition(a: list[int], p: int, r: int) -> int:
 
     for i in range(m):
         q = p + 5 * i
-        a[q : q + 5] = sorted(a[q : q + 5])
+        indeces = slice(q, q + 5)
+        a[indeces] = sorted(a[indeces])
         b.append(a[q + 2])
 
     x = select(b, 0, m, m // 2)

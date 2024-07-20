@@ -83,7 +83,7 @@ class MaxHeap:
         i = self.heap.index(x)
         self.heap[i] = k
 
-        while i and self.heap[(j := parent(i))] < self.heap[i]:
+        while i and self.heap[j := parent(i)] < self.heap[i]:
             self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
             i = j
 
@@ -160,7 +160,7 @@ class MinHeap:
         i = self.heap.index(x)
         self.heap[i] = k
 
-        while i and self.heap[(j := parent(i))] > self.heap[i]:
+        while i and self.heap[j := parent(i)] > self.heap[i]:
             self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
             i = j
 

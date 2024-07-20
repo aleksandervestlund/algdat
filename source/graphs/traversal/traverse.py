@@ -1,14 +1,12 @@
-from copy import deepcopy
-
 from source.datastructures.graph import Graph, Status, Vertex
 
 
 def traverse(g: Graph, u: Vertex) -> None:
-    g = deepcopy(g)  # Avoid modifying the original graph.
     print(u)
 
     if (adjacent := g.adj.get(u)) is None:
         return
+
     del g.adj[u]
 
     for v in adjacent:
