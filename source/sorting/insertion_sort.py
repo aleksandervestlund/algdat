@@ -4,6 +4,7 @@ def insertion_sort(a: list[float], n: int) -> None:
         WC: Θ(n^2) (sorted in reverse order).
         AC: Θ(n^2).
     Stable: Yes.
+    In-place: Yes.
     """
     for i in range(1, n):
         key = a[i]

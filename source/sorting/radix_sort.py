@@ -1,6 +1,7 @@
 def radix_sort(a: list[int], d: int) -> list[int]:
     """Runtime: Θ(d(n+k)).
     Stable: Yes, if `sort` is stable.
+    In-place: No.
     """
     _validate_range(a, d)  #! Not part of pseudocode.
 

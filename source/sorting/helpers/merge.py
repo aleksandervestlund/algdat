@@ -1,4 +1,8 @@
-def merge(a: list[int], p: int, q: int, r: int) -> None:
+def merge(a: list[float], p: int, q: int, r: int) -> None:
+    """Runtime: Θ(n).
+    Stable: Yes.
+    In-place: No?
+    """
     left = a[p:q] + [float("inf")]
     right = a[q:r] + [float("inf")]
     i = 0
@@ -6,8 +10,8 @@ def merge(a: list[int], p: int, q: int, r: int) -> None:
 
     for k in range(p, r):
         if left[i] <= right[j]:
-            a[k] = left[i]  # type: ignore
+            a[k] = left[i]
             i += 1
         else:
-            a[k] = right[j]  # type: ignore
+            a[k] = right[j]
             j += 1

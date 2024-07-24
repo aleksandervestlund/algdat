@@ -1,10 +1,10 @@
-def bisect(a: list[int], p: int, r: int, v: int) -> int | None:
+def bisect(a: list[float], p: int, r: int, v: float) -> int | None:
     """Also known as binary search.
 
     Runtime: O(log(n)).
     """
     if p > r:
-        return None
+        return None  # I would prefer -1, but the pseudocode uses None.
 
     q = (p + r) // 2
 

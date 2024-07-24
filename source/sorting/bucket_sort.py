@@ -12,6 +12,7 @@ def bucket_sort(a: list[float], n: int) -> list[float]:
         AC: Θ(n).
         WC: Θ(n^2) (all elements in the same bucket).
     Stable: Yes.
+    In-place: No.
     """
     _validate_range(a)  #! Not part of pseudocode.
 

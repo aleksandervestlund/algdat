@@ -1,7 +1,7 @@
 from source.sorting.helpers.partition import partition, randomized_partition
 
 
-def quicksort(a: list[int], p: int, r: int) -> None:
+def quicksort(a: list[float], p: int, r: int) -> None:
     """Divide and conquer.
 
     Runtimes:
@@ -9,6 +9,7 @@ def quicksort(a: list[int], p: int, r: int) -> None:
         AC: Θ(n*log(n)).
         WC: Θ(n^2) (sorted in reverse order).
     Stable: No.
+    In-place: Yes.
     """
     if p >= r - 1:
         return
@@ -18,11 +19,12 @@ def quicksort(a: list[int], p: int, r: int) -> None:
     quicksort(a, q + 1, r)
 
 
-def randomized_quicksort(a: list[int], p: int, r: int) -> None:
+def randomized_quicksort(a: list[float], p: int, r: int) -> None:
     """Divide and conquer.
 
     Runtime: Θ(n*log(n)).
     Stable: No.
+    In-place: Yes.
     """
     if p >= r - 1:
         return

@@ -3,6 +3,7 @@ def counting_sort(a: list[int], n: int, k: int) -> list[int]:
 
     Runtime: Θ(n+k).
     Stable: Yes.
+    In-place: No.
     """
     _validate_range(a, k)  #! Not part of pseudocode.
 
