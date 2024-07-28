@@ -27,7 +27,7 @@ def print_heap(heap: MaxHeap | MinHeap) -> None:
 
     Runtime: O(n).
     """
-    height = int(math.log2(heap.size)) + 1  # Didn't want a numpy dependency...
+    height = int(math.log2(heap.size)) + 1  # Don't want a numpy dependency...
     left_space = 2**height - 2
     middle_space = 0
     idx = 0
@@ -72,7 +72,7 @@ class MaxHeap:
 
     def build_max_heap(self, n: int) -> None:
         """Runtime: Θ(n)."""
-        for i in range(n // 2, -1, -1):
+        for i in reversed(range(n // 2 + 1)):
             self.max_heapify(i)
 
     def max_heap_increase_key(self, x: int, k: int) -> None:
@@ -121,7 +121,7 @@ class MaxHeap:
         """
         self.build_max_heap(n)
 
-        for i in range(n - 1, 0, -1):
+        for i in reversed(range(1, n)):
             self.heap[0], self.heap[i] = self.heap[i], self.heap[0]
             self.size -= 1
             self.max_heapify(0)
@@ -149,7 +149,7 @@ class MinHeap:
 
     def build_min_heap(self, n: int) -> None:
         """Runtime: Θ(n)."""
-        for i in range(n // 2, -1, -1):
+        for i in reversed(range(n // 2 + 1)):
             self.min_heapify(i)
 
     def min_heap_decrease_key(self, x: int, k: int) -> None:
@@ -198,7 +198,7 @@ class MinHeap:
         """
         self.build_min_heap(n)
 
-        for i in range(n - 1, 0, -1):
+        for i in reversed(range(1, n)):
             self.heap[0], self.heap[i] = self.heap[i], self.heap[0]
             self.size -= 1
             self.min_heapify(0)

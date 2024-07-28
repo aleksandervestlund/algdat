@@ -22,8 +22,6 @@ def bellman_ford(
     return not any(v.d > u.d + w[(u, v)] for u, v in g.E)
     # for edge in g.E:
     #     u, v = edge
-    #
     #     if v.d > u.d + w[edge]:
     #         return False
-    #
     # return True

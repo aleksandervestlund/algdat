@@ -9,7 +9,7 @@ class PriorityQueue:
     queue: list[Any] = field(default_factory=list, init=False)
 
     def insert(self, value: Any) -> None:
-        """Runtime: O(log(V))."""
+        """Runtime: O(log(n))."""
         bisect.insort(
             self.queue,
             value,
@@ -25,7 +25,7 @@ class PriorityQueue:
         return self.queue.pop()
 
     def decrease_key(self, item: Any, value: float) -> None:
-        """Runtime: O(log(V))."""
+        """Runtime: O(log(n))."""
         if self.key is None:
             if value > item:
                 raise ValueError()
@@ -39,7 +39,7 @@ class PriorityQueue:
         self.insert(item)
 
     def increase_key(self, item: Any, value: float) -> None:
-        """Runtime: O(log(V))."""
+        """Runtime: O(log(n))."""
         if self.key is None:
             if value < item:
                 raise ValueError()
@@ -53,7 +53,11 @@ class PriorityQueue:
         self.insert(item)
 
     def __len__(self) -> int:
+        """Used for both `len(q)` and `while q`, which is equivalent to
+        `while len(q) > 0`.
+        """
         return len(self.queue)
 
     def __contains__(self, item: Any) -> bool:
+        """Used for `if item in q`."""
         return item in self.queue

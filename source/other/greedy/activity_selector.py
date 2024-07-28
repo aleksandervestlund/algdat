@@ -12,6 +12,7 @@ def recursive_activity_selector(
 
 
 def greedy_activity_selector(s: list[int], f: list[int], n: int) -> set[int]:
+    # Assumes that the activities are sorted by finish time.
     a = {0}
     k = 0
 

@@ -20,7 +20,8 @@ def quicksort(a: list[float], p: int, r: int) -> None:
 
 
 def randomized_quicksort(a: list[float], p: int, r: int) -> None:
-    """Divide and conquer.
+    """Divide and conquer. Actually has a WC of Θ(n^2), if the
+    randomization is bad.
 
     Runtime: Θ(n*log(n)).
     Stable: No.

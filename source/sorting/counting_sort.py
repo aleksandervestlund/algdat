@@ -16,7 +16,7 @@ def counting_sort(a: list[int], n: int, k: int) -> list[int]:
     for i in range(1, k + 1):
         c[i] += c[i - 1]
 
-    for i in range(n - 1, -1, -1):
+    for i in reversed(range(n)):
         b[c[a[i]] - 1] = a[i]
         c[a[i]] -= 1
 

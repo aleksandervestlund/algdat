@@ -12,9 +12,11 @@ class ChainedHashTable:
         self.table = [LinkedList() for _ in range(self.size)]
 
     def _get_linked_list(self, key: int) -> LinkedList:
+        """Helper method."""
         return self.table[self._hash(key)]
 
     def _hash(self, key: int) -> int:
+        """Helper method."""
         return key % self.size
 
     def chained_hash_search(self, key: int) -> LinkedListNode | None:

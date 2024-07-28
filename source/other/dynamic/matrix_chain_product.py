@@ -1,4 +1,5 @@
 def matrix_chain_product(p: list[int], n: int) -> int:
+    """Runtime: Θ(n^3)."""
     m = [[0 if i == j else float("inf") for i in range(n)] for j in range(n)]
 
     for l in range(1, n):

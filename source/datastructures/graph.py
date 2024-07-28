@@ -47,6 +47,7 @@ class Vertex:
     key: float = field(default=float("inf"))  # Prim
 
     def __hash__(self) -> int:
+        """Used for hashing in dictionaries and sets."""
         return hash(self.name)
 
     def __repr__(self) -> str:

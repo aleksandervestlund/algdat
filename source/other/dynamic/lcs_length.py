@@ -43,6 +43,7 @@ def lcs_length(
 
 
 def print_lcs(b: list[list[Arrow]], x: str, i: int, j: int) -> None:
+    """Runtime: Θ(m + n)."""
     if i == 0 or j == 0:
         return
 

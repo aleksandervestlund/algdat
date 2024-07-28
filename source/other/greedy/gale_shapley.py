@@ -1,13 +1,14 @@
 def gale_shapley(
-    men: list[list[int]], women: list[list[int]]
+    men: list[list[int]], women: list[list[int]], male_oriented: bool = False
 ) -> dict[int, int]:
-    """Female-oriented Gale-Shapley algorithm.
+    """Runtime: O(n^2)."""
+    if male_oriented:
+        men, women = women, men
 
-    Runtime: O(n^2).
-    """
-    n = len(women)
-    free_ws = set(range(n))
-    engagements: dict[int, int] = {}  # man: woman
+    free_ws = set(range(len(women)))
+
+    # {man: woman}. More efficient to check if man is engaged.
+    engagements: dict[int, int] = {}
 
     while free_ws:
         w = free_ws.pop()
@@ -23,4 +24,5 @@ def gale_shapley(
                 engagements[m] = w
                 break
 
-    return {w: m for m, w in engagements.items()}  # woman: man
+    # Want to return {woman: man}, since it is female-oriented.
+    return {w: m for m, w in engagements.items()}
