@@ -1,4 +1,7 @@
-def insertion_sort(a: list[float], n: int) -> None:
+from source.sorting.helpers.comparable import Comparable
+
+
+def insertion_sort(a: list[Comparable], n: int) -> None:
     """Runtimes:
         BC: Θ(n) (sorted).
         WC: Θ(n^2) (sorted in reverse order).

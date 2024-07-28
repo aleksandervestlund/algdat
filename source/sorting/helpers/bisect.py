@@ -1,4 +1,7 @@
-def bisect(a: list[float], p: int, r: int, v: float) -> int | None:
+from source.sorting.helpers.comparable import Comparable
+
+
+def bisect(a: list[Comparable], p: int, r: int, v: Comparable) -> int | None:
     """Also known as binary search.
 
     Runtime: O(log(n)).

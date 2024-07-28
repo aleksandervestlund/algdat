@@ -1,12 +1,15 @@
 from math import ceil
 
+from source.sorting.helpers.comparable import Comparable
 from source.sorting.helpers.partition import (
     partition_around,
     randomized_partition,
 )
 
 
-def randomized_select(a: list[float], p: int, r: int, i: int) -> float:
+def randomized_select(
+    a: list[Comparable], p: int, r: int, i: int
+) -> Comparable:
     """Find the `i`th smallest element in the array. Divide and conquer.
 
     Runtimes:
@@ -27,7 +30,7 @@ def randomized_select(a: list[float], p: int, r: int, i: int) -> float:
     return randomized_select(a, q + 1, r, i - k)
 
 
-def select(a: list[float], p: int, r: int, i: int) -> float:
+def select(a: list[Comparable], p: int, r: int, i: int) -> Comparable:
     """Find the `i`th smallest element in the array. Divide and conquer.
 
     Runtime: O(n).

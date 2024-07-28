@@ -1,7 +1,8 @@
+from source.sorting.helpers.comparable import Comparable
 from source.sorting.helpers.partition import partition, randomized_partition
 
 
-def quicksort(a: list[float], p: int, r: int) -> None:
+def quicksort(a: list[Comparable], p: int, r: int) -> None:
     """Divide and conquer.
 
     Runtimes:
@@ -19,7 +20,7 @@ def quicksort(a: list[float], p: int, r: int) -> None:
     quicksort(a, q + 1, r)
 
 
-def randomized_quicksort(a: list[float], p: int, r: int) -> None:
+def randomized_quicksort(a: list[Comparable], p: int, r: int) -> None:
     """Divide and conquer. Actually has a WC of Θ(n^2), if the
     randomization is bad.
 

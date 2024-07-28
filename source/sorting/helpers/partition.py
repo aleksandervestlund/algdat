@@ -1,8 +1,10 @@
 import math
 import random
 
+from source.sorting.helpers.comparable import Comparable
 
-def partition(a: list[float], p: int, r: int) -> int:
+
+def partition(a: list[Comparable], p: int, r: int) -> int:
     """Runtime: O(n).
     Stable: No.
     In-place: Yes.
@@ -19,7 +21,7 @@ def partition(a: list[float], p: int, r: int) -> int:
     return i + 1
 
 
-def randomized_partition(a: list[float], p: int, r: int) -> int:
+def randomized_partition(a: list[Comparable], p: int, r: int) -> int:
     """Runtime: O(n).
     Stable: No.
     In-place: Yes.
@@ -29,7 +31,9 @@ def randomized_partition(a: list[float], p: int, r: int) -> int:
     return partition(a, p, r)
 
 
-def partition_around(a: list[float], p: int, r: int, x: float) -> int:
+def partition_around(
+    a: list[Comparable], p: int, r: int, x: Comparable
+) -> int:
     """Runtime: O(n).
     Stable: No.
     In-place: Yes.
@@ -46,7 +50,7 @@ def partition_around(a: list[float], p: int, r: int, x: float) -> int:
     return partition(a, p, r)
 
 
-def good_partition(a: list[float], p: int, r: int) -> int:
+def good_partition(a: list[Comparable], p: int, r: int) -> int:
     """Runtime: O(n).
     Stable: No.
     In-place: Yes.
@@ -55,7 +59,7 @@ def good_partition(a: list[float], p: int, r: int) -> int:
 
     n = r - p
     m = math.ceil(n / 5)
-    b: list[float] = []
+    b: list[Comparable] = []
 
     for i in range(m):
         q = p + 5 * i

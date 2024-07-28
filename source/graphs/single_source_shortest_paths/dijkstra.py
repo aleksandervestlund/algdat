@@ -19,7 +19,7 @@ def dijkstra(
     Runtime: O((V+E)*log(V)).
     """
     initialize_single_source(g, s)
-    S = set()
+    S: set[Vertex] = set()
     q = PriorityQueue(key="d")
 
     for u in g.V:
