@@ -1,8 +1,8 @@
 def gale_shapley(
-    men: list[list[int]], women: list[list[int]], male_oriented: bool = False
+    men: list[list[int]], women: list[list[int]], female_oriented: bool = True
 ) -> dict[int, int]:
     """Runtime: O(n^2)."""
-    if male_oriented:
+    if not female_oriented:
         men, women = women, men
 
     free_ws = set(range(len(women)))

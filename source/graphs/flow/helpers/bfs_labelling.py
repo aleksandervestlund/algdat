@@ -19,7 +19,7 @@ def bfs_labelling(
     q.enqueue(s)
 
     while not q.is_empty() and t.f == 0:
-        u: Vertex = q.dequeue()
+        u: Vertex = q.dequeue()  # type: ignore
         edges = {edge for edge in g.E if u in edge}
 
         for edge in edges:

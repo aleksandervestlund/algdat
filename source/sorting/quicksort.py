@@ -8,6 +8,7 @@ def quicksort(a: list[float], p: int, r: int) -> None:
         BC: Θ(n*log(n)).
         AC: Θ(n*log(n)).
         WC: Θ(n^2) (sorted in reverse order).
+
     Stable: No.
     In-place: Yes.
     """

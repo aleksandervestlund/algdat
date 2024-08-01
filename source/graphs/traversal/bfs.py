@@ -28,10 +28,10 @@ def bfs(
     q.enqueue(s)
 
     while not q.is_empty():
-        u: Vertex = q.dequeue()
+        u: Vertex = q.dequeue()  # type: ignore
 
         #! Not part of the original pseudocode, but useful for exams.
-        vertices = g.adj[u]
+        vertices = list(g.adj[u])
         if priority is not None:
             vertices = sorted(vertices, key=priority)
         # Safe and sound.

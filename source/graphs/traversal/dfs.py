@@ -50,7 +50,7 @@ def iterative_dfs_visit(g: Graph, s: Vertex) -> None:
     q.push(s)
 
     while not q.stack_empty():
-        u: Vertex = q.peek()
+        u: Vertex = q.peek()  # type: ignore
 
         if u.color is not Status.UNVISITED:
             u.color = Status.VISITED

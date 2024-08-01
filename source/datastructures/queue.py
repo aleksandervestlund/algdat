@@ -4,6 +4,8 @@ from typing import Any
 
 @dataclass(slots=True)
 class Queue:
+    """FIFO (First in, first out) data structure."""
+
     size: int = field(repr=False)
     queue: list[Any] = field(init=False)
     head: int = field(default=0, init=False, repr=False)

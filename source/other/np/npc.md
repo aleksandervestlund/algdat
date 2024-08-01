@@ -8,7 +8,7 @@
 
 > NPH: NP-Hard
 
-- A problem $Q$ is ${\sf NPC}$ if $Q$ is ${\sf NP}$ and ${\sf NPH}$.
+- A problem $Q$ is ${\sf NPC}$ if $Q$ is both ${\sf NP}$ and ${\sf NPH}$.
 
 > NPC: NP-Complete
 
@@ -29,7 +29,7 @@
 
 - Show that $L \in {\sf NP}$.
   - That an answer can be validated in polynomial time.
-  - co - ${\sf NP}$ is the same as ${\sf NP}$, but the answer is no.
+  - co - ${\sf NP}$ is the same as ${\sf NP}$, but the answer can be _invalidated_.
 - Choose a known ${\sf NPC}$ problem $L^\prime$.
 - Show that $L^\prime$ can be reduced to $L$.
 

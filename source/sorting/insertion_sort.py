@@ -3,6 +3,7 @@ def insertion_sort(a: list[float], n: int) -> None:
         BC: Θ(n) (sorted).
         WC: Θ(n^2) (sorted in reverse order).
         AC: Θ(n^2).
+
     Stable: Yes.
     In-place: Yes.
     """

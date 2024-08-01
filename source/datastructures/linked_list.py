@@ -22,11 +22,14 @@ class LinkedListNode:
 
 @dataclass(slots=True, repr=False)
 class LinkedList:
+    """Doubly linked list."""
+
     head: LinkedListNode | None = None
 
     def list_search(self, key: int) -> LinkedListNode | None:
         """Runtime: O(n)."""
         x = self.head
+
         while x is not None and x.key != key:
             x = x.next
 

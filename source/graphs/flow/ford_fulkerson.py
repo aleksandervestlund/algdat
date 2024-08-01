@@ -56,7 +56,7 @@ def find_path(
     q = Queue(len(g.V))
     q.enqueue(s)
     while not q.is_empty():
-        u: Vertex = q.dequeue()
+        u: Vertex = q.dequeue()  # type: ignore
         for v in sorted(g.adj[u], key=lambda x: x.name):
             if v.color is not Status.UNVISITED:
                 continue

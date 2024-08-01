@@ -11,6 +11,7 @@ def bucket_sort(a: list[float], n: int) -> list[float]:
         BC: Θ(n).
         AC: Θ(n).
         WC: Θ(n^2) (all elements in the same bucket).
+    
     Stable: Yes.
     In-place: No.
     """

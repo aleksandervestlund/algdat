@@ -9,6 +9,7 @@ def print_all_pairs_shortest_paths(
     if not (isinstance(i.name, int) and isinstance(j.name, int)):
         return
 
+    # Assumes that the first vertix is named 1.
     # It's weird to use the name as index, but it's what the pseudocode does.
     if i is j:
         print(i.name)

@@ -194,4 +194,7 @@
 > The structure is subject to change.
 > The `exercises` directory is no longer part of the git repository.
 > The `tests` directory is empty.
-> The `bipartite.py`-file, the `print_heap`-function in `heap.py`-file, and the `height`, `tree_preorder_walk` and `tree_postorder_walk`-methods in the `tree.py`-file are not part of the curriculum.
+> The `bipartite.py`-file,
+> the `shortest_paths.py`,
+> the `print_heap`-function in `heap.py`-file,
+> and the `height`, `tree_preorder_walk` and `tree_postorder_walk`-methods in the `tree.py`-file are not part of the curriculum.

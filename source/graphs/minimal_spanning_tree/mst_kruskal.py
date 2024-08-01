@@ -1,5 +1,6 @@
 from source.datastructures.graph import Graph, Vertex
-from source.datastructures.set import find_set, make_set, union
+from source.datastructures.set import make_set, union
+from source.graphs.minimal_spanning_tree.components import same_components
 
 
 def mst_kruskal(
@@ -20,7 +21,7 @@ def mst_kruskal(
     for edge in edges:
         u, v = edge
 
-        if find_set(u) is not find_set(v):
+        if not same_components(u, v):
             a.add(edge)
             union(u, v)
 

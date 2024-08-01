@@ -6,6 +6,8 @@ from source.datastructures.helpers.underflow import UnderflowError
 
 @dataclass(slots=True)
 class Stack:
+    """LIFO (Last in, first out) data structure."""
+
     size: int = field(repr=False)
     stack: list[Any] = field(init=False)
     top: int = field(default=-1, init=False, repr=False)

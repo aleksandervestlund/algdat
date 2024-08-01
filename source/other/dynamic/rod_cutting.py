@@ -20,7 +20,7 @@ def bottom_up_rod_cut(p: list[int], n: int) -> int:
     r = [0] * (n + 1)
 
     for j in range(1, n + 1):
-        q = 0
+        q: int = float("-inf")  # type: ignore
 
         for i in range(1, j + 1):
             t = p[i - 1] + r[j - i]

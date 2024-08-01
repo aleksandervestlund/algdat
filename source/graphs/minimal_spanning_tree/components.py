@@ -7,7 +7,7 @@ def connected_components(g: Graph) -> None:
         make_set(v)
 
     for u, v in g.E:
-        if find_set(u) is not find_set(v):
+        if not same_components(u, v):
             union(u, v)
 
 
