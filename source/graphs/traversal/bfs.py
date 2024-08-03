@@ -8,7 +8,9 @@ from source.datastructures.queue import Queue
 def bfs(
     g: Graph,
     s: Vertex,
-    priority: Callable[[Vertex], Any] | None = None,  #! Not part of pseudocode
+    priority: Callable[
+        [Vertex], Any
+    ] = lambda x: x.name,  #! Not part of pseudocode
 ) -> None:
     """Breadth First Search.
 
@@ -29,12 +31,9 @@ def bfs(
 
     while not q.is_empty():
         u: Vertex = q.dequeue()  # type: ignore
-
-        #! Not part of the original pseudocode, but useful for exams.
-        vertices = list(g.adj[u])
-        if priority is not None:
-            vertices = sorted(vertices, key=priority)
-        # Safe and sound.
+        vertices = sorted(
+            g.adj[u], key=priority
+        )  #! Not part of the original pseudocode.
 
         for v in vertices:
             if v.color is Status.UNVISITED:

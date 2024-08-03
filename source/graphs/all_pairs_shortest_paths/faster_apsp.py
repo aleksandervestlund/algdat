@@ -4,7 +4,11 @@ from source.graphs.all_pairs_shortest_paths.extend_shortest_paths import (
 
 
 def faster_apsp(w: list[list[float]], n: int) -> list[list[float]]:
-    """Runtime: Θ(n^3*log(n))."""
+    """Works in the same way as the slow version, but considers all
+    paths of length `2^0`, then all paths of length `2^1`, and so on.
+
+    Runtime: Θ(n^3*log(n)).
+    """
     l = w
     r = 1
 

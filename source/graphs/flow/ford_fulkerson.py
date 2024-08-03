@@ -12,8 +12,7 @@ def ford_fulkerson(
     never terminate.
     Nodes visited in last iteration are part of the minimal cut.
     """
-    g_f = Graph()
-    g_f.adj = {u: adjacencies.copy() for u, adjacencies in g.adj.items()}
+    g_f = g.copy()
     fs = {edge: 0 for edge in g.E}
 
     while (path := find_path(g_f, s, t)) is not None:

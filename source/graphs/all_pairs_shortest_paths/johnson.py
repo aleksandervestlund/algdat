@@ -9,24 +9,23 @@ def johnson(
     g: Graph, w: dict[tuple[Vertex, Vertex], float]
 ) -> list[list[float]]:
     """Runtime: O(V^2*log(V)+V*E)."""
+    g_marked = g.copy()
+    s = Vertex("s")
+    g_marked.adj[s] = g.V
+    bellman_ford(g_marked, w | {(s, v): 0 for v in g.V}, s)
+
+    n = len(g.V)
     vertices = sorted(g.V, key=lambda v: v.name)
-
-    h = [float("inf")] * len(vertices)
+    h = [float("inf")] * n
     w_hat: dict[tuple[Vertex, Vertex], float] = {}
+    d = [[float("inf")] * n for _ in range(n)]
 
-    for s in vertices:
-        bellman_ford(g, w, s)
-
-        for v in g.V:
-            v_idx = vertices.index(v)
-            h[v_idx] = min(v.d, h[v_idx])
+    for i, v in enumerate(vertices):
+        h[i] = v.d
 
     for edge in g.E:
         u, v = edge
         w_hat[edge] = w[edge] + h[vertices.index(u)] - h[vertices.index(v)]
-
-    n = len(g.V)
-    d = [[float("inf")] * n for _ in range(n)]
 
     for u in g.V:
         dijkstra(g, w_hat, u)

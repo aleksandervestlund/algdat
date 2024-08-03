@@ -69,5 +69,11 @@ class Graph:
     def E(self) -> set[tuple[Vertex, Vertex]]:
         return {(u, v) for u, vs in self.adj.items() for v in vs}
 
+    def copy(self) -> Graph:
+        """Returns a shallow copy of the graph."""
+        return self.__class__(
+            {u: adjacencies.copy() for u, adjacencies in self.adj.items()}
+        )
+
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}({self.V})"

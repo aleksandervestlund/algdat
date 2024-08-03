@@ -8,8 +8,8 @@ class Queue:
 
     size: int = field(repr=False)
     queue: list[Any] = field(init=False)
-    head: int = field(default=0, init=False, repr=False)
-    tail: int = field(default=0, init=False, repr=False)
+    head: int = field(default=0, init=False)
+    tail: int = field(default=0, init=False)
 
     def __post_init__(self) -> None:
         self.queue = [None] * self.size
@@ -17,7 +17,7 @@ class Queue:
     def enqueue(self, x: Any) -> None:
         self.queue[self.tail] = x
 
-        if self.tail == self.size:
+        if self.tail == self.size - 1:
             self.tail = 0
         else:
             self.tail += 1
@@ -25,7 +25,7 @@ class Queue:
     def dequeue(self) -> Any:
         x = self.queue[self.head]
 
-        if self.head == self.size:
+        if self.head == self.size - 1:
             self.head = 0
         else:
             self.head += 1
