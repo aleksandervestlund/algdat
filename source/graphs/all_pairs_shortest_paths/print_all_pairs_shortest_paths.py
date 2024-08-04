@@ -4,6 +4,7 @@ from source.datastructures.graph import Vertex
 def print_all_pairs_shortest_paths(
     pis: list[list[Vertex | None]], i: Vertex | None, j: Vertex | None
 ) -> None:
+    """Runtime: O(V)."""
     if i is None or j is None:
         return
     if not (isinstance(i.name, int) and isinstance(j.name, int)):

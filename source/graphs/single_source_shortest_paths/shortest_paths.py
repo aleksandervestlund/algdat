@@ -23,5 +23,5 @@ def shortest_paths(
         dag_shortest_paths(g, w, s)
     elif all(weight >= 0 for weight in w.values()):
         dijkstra(g, w, s)
-    elif bellman_ford(g, w, s):
+    elif not bellman_ford(g, w, s):
         raise ValueError("Negative cycle.")

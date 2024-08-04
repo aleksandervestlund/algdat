@@ -2,7 +2,7 @@ from source.sorting.helpers.partition import partition, randomized_partition
 
 
 def quicksort(a: list[float], p: int, r: int) -> None:
-    """Divide and conquer.
+    """Divide and conquer. `r` is the last legal index of `a`.
 
     Runtimes:
         BC: Θ(n*log(n)).

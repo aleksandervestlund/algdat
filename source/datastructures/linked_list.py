@@ -4,6 +4,10 @@ from dataclasses import dataclass, field
 
 
 def list_insert(x: LinkedListNode, y: LinkedListNode) -> None:
+    """`x` is inserted after `y`.
+
+    Runtime: O(1).
+    """
     x.next = y.next
     x.prev = y
 

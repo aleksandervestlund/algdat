@@ -72,13 +72,26 @@ class Tree:
             self.tree_postorder_walk(x.right)
             print(x.key)
 
-    def tree_search(self, x: TreeNode | None, key: int) -> TreeNode | None:
+    def tree_search(
+        self, key: int, x: TreeNode | None = None
+    ) -> TreeNode | None:
         """Runtime: O(h)."""
+        if x is None:
+            x = self.root
         if x is None or x.key == key:
             return x
         if key < x.key:
-            return self.tree_search(x.left, key)
-        return self.tree_search(x.right, key)
+            return self.tree_search(key, x.left)
+        return self.tree_search(key, x.right)
+
+    def iterative_tree_search(self, key: int) -> TreeNode | None:
+        """Runtime: O(h)."""
+        x = self.root
+
+        while x is not None and x.key != key:
+            x = x.left if key < x.key else x.right
+
+        return x
 
     def tree_insert(self, z: TreeNode) -> None:
         """Runtime: O(h)."""

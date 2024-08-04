@@ -2,6 +2,7 @@ from source.datastructures.graph import Graph, Status, Vertex
 
 
 def traverse(g: Graph, u: Vertex) -> None:
+    """Runtime: Θ(V + E)."""
     print(u)
 
     if (adjacent := g.adj.get(u)) is None:
@@ -16,6 +17,7 @@ def traverse(g: Graph, u: Vertex) -> None:
 
 
 def traverse_marked(g: Graph, u: Vertex) -> None:
+    """Runtime: Θ(V + E)."""
     print(u)
     u.color = Status.VISITING
 

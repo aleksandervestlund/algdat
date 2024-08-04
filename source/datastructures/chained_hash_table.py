@@ -20,7 +20,7 @@ class ChainedHashTable:
         return key % self.size
 
     def chained_hash_search(self, key: int) -> LinkedListNode | None:
-        """Runtime: O(n)."""
+        """Runtime: O(n). Amortized: O(1)."""
         return self._get_linked_list(key).list_search(key)
 
     def chained_hash_insert(self, x: LinkedListNode) -> None:

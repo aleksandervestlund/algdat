@@ -95,7 +95,12 @@ class MaxHeap:
         self.size += 1
         k = key
         key = float("-inf")  # type: ignore
-        self.heap.append(key)
+
+        if self.size > len(self.heap):
+            self.heap.append(key)
+        else:
+            self.heap[self.size - 1] = key
+
         self.max_heap_increase_key(key, k)
 
     def max_heap_maximum(self) -> int:
@@ -108,7 +113,7 @@ class MaxHeap:
     def max_heap_extract_max(self) -> int:
         """Runtime: O(log(n))."""
         maximum = self.max_heap_maximum()
-        self.heap[0] = self.heap.pop()
+        self.heap[0] = self.heap[self.size - 1]
         self.size -= 1
         self.max_heapify(0)
         return maximum
@@ -176,7 +181,12 @@ class MinHeap:
         self.size += 1
         k = key
         key = float("inf")  # type: ignore
-        self.heap.append(key)
+
+        if self.size > len(self.heap):
+            self.heap.append(key)
+        else:
+            self.heap[self.size - 1] = key
+
         self.min_heap_decrease_key(key, k)
 
     def min_heap_minimum(self) -> int:
@@ -189,7 +199,7 @@ class MinHeap:
     def min_heap_extract_min(self) -> int:
         """Runtime: O(log(n))."""
         minimum = self.min_heap_minimum()
-        self.heap[0] = self.heap.pop()
+        self.heap[0] = self.heap[self.size - 1]
         self.size -= 1
         self.min_heapify(0)
         return minimum

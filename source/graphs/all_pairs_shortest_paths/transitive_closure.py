@@ -28,6 +28,6 @@ def transitive_closure_marked(g: Graph, n: int) -> list[list[bool]]:
     for k in range(n):
         for i in range(n):
             for j in range(n):
-                t[i][j] = t[i][j] or (t[i][k] and t[k][j])
+                t[i][j] |= t[i][k] and t[k][j]
 
     return t
