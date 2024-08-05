@@ -6,7 +6,8 @@ def mst_prim(
     g: Graph, w: dict[tuple[Vertex, Vertex], float], r: Vertex
 ) -> None:
     """Grows the tree by adding the cheapest edge that connects a vertex
-    in the tree to a vertex outside the tree.
+    in the tree to a vertex outside the tree. The graph must be
+    connected.
     Better runtime than Kruskal if used on a Fibonacci heap and the
     graph has many edges.
 

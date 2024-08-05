@@ -68,35 +68,36 @@
 
 ```bash
 ├── exercises
-│   ├── exercise1
+│   ├── exercise01
+│   │   ├── max_permutations.py
 │   │   └── take_pieces.py
-│   ├── exercise2
+│   ├── exercise02
 │   │   └── sort.py
-│   ├── exercise3
+│   ├── exercise03
 │   │   ├── find_maximum.py
 │   │   └── largest_cuboid.py
-│   ├── exercise4
+│   ├── exercise04
 │   │   ├── flexradix.py
 │   │   └── k_largest.py
-│   ├── exercise5
+│   ├── exercise05
 │   │   ├── build_tree.py
 │   │   ├── longest_repeated_substring.py
 │   │   ├── node.py
 │   │   ├── search_tree.py
 │   │   └── string_match.py
-│   ├── exercise6
+│   ├── exercise06
 │   │   ├── f.py
 │   │   └── longest_decreasing_subsequence.py
-│   ├── exercise7
+│   ├── exercise07
 │   │   ├── build_decision_tree.py
 │   │   ├── encode.py
 │   │   └── encoding.py
-│   ├── exercise8
+│   ├── exercise08
 │   │   ├── compatibility_graph.py
 │   │   ├── detect_envy_cycle.py
 │   │   ├── resolve_and_install.py
 │   │   └── shortest_road.py
-│   ├── exercise9
+│   ├── exercise09
 │   │   ├── check.py
 │   │   ├── find_animal_groups.py
 │   │   ├── higher_ed_solver.py
@@ -152,9 +153,10 @@
 │   │   │   ├── bellman_ford.py
 │   │   │   ├── dag_shortest_paths.py
 │   │   │   ├── dijkstra.py
-│   │   │   └── helpers
-│   │   │       ├── initialize_single_source.py
-│   │   │       └── relax.py
+│   │   │   ├── helpers
+│   │   │   │   ├── initialize_single_source.py
+│   │   │   │   └── relax.py
+│   │   │   └── shortest_paths.py
 │   │   └── traversal
 │   │       ├── bfs.py
 │   │       ├── bipartite.py
@@ -162,12 +164,12 @@
 │   │       ├── edge_classification.py
 │   │       └── traverse.py
 │   ├── other
-│   │   ├── dynamic
+│   │   ├── dynamic_programming
 │   │   │   ├── knapsack.py
 │   │   │   ├── lcs_length.py
 │   │   │   ├── matrix_chain_product.py
 │   │   │   └── rod_cutting.py
-│   │   ├── greedy
+│   │   ├── greed
 │   │   │   ├── activity_selector.py
 │   │   │   ├── gale_shapley.py
 │   │   │   └── huffman.py

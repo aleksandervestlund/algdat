@@ -4,7 +4,7 @@
 
 - A problem $Q$ is ${\sf NP}$ if a solution can be verified in polynomial time.
 
-- A problem $Q$ is ${\sf NPH}$ if all problems in ${\sf NP}$ can be reduced to $Q$ in polynomial time.
+- A problem $Q$ is ${\sf NPH}$ if all problems in ${\sf NP}$ can be reduced to $Q$ in polynomial time. Note that ${\sf NPH}$ is not always in ${\sf NP}$.
 
 > NPH: NP-Hard
 

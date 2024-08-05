@@ -1,7 +1,10 @@
 def recursive_activity_selector(
     s: list[int], f: list[int], k: int, n: int
 ) -> set[int]:
-    # Assumes that the activities are sorted by finish time.
+    """Assumes that the activities are sorted by finish time.
+
+    Runtime: Θ(n).
+    """
     m = k + 1
 
     while m < n and s[m] < f[k]:
@@ -13,8 +16,10 @@ def recursive_activity_selector(
 
 
 def greedy_activity_selector(s: list[int], f: list[int], n: int) -> set[int]:
-    """Runtime: Θ(n)."""
-    # Assumes that the activities are sorted by finish time.
+    """Assumes that the activities are sorted by finish time.
+
+    Runtime: Θ(n).
+    """
     a = {0}
     k = 0
 
