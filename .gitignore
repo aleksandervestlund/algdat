@@ -4,3 +4,4 @@ exercises/*
 lectures/*
 venv/*
 main.py
+.DS_Store
